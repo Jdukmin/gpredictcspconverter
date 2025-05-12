@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['data',['data',['../structcsp__packet__t.html#a4dcf155b30d6c1669b136ce4ace47741',1,'csp_packet_t::data()'],['../structi2c__frame__s.html#a5c25d321f4554e12811b95f6ddfe6985',1,'i2c_frame_s::data()']]],
+  ['data16',['data16',['../structcsp__packet__t.html#a712287deda9bf95eaf9d757e4de4be82',1,'csp_packet_t']]],
+  ['data32',['data32',['../structcsp__packet__t.html#aa8dd4f9d4f42b8a455a5c6323f811b91',1,'csp_packet_t']]],
+  ['data_5forder_5fmsb',['data_order_msb',['../structgs__i2c__config__t.html#a54e8f245a61f72d3d61925d936c2af1d',1,'gs_i2c_config_t::data_order_msb()'],['../structgs__spi__master__slave__config__t.html#a3a19e5281c34732c09daebf5410f8dbc',1,'gs_spi_master_slave_config_t::data_order_msb()'],['../structgs__spi__slave__config__t.html#aec83920fc06c99d6cdc8b7229549968e',1,'gs_spi_slave_config_t::data_order_msb()']]],
+  ['databits',['databits',['../structcsp__usart__conf.html#afd54705708c01c6cebf7a384bf9a9133',1,'csp_usart_conf']]],
+  ['default_5fconnection_5foptions',['default_connection_options',['../structgs__csp__conf__t.html#a5f335bfb81ed1ef46837f1e5c9e5d499',1,'gs_csp_conf_t']]],
+  ['delay_2eh',['delay.h',['../delay_8h.html',1,'']]],
+  ['deploy_5fin_5fs',['deploy_in_s',['../structgssb__csp__istage__status__t.html#a178f6dcbac5c6415352a682ef7e5c0ed',1,'gssb_csp_istage_status_t']]],
+  ['deploying',['DEPLOYING',['../gssb__autodeploy_8h.html#ab18fcecf0b126b8b5364f56aaadf7017a5ce913cd358174b55d47748b2b85f380',1,'gssb_autodeploy.h']]],
+  ['deprecated_20list',['Deprecated List',['../deprecated.html',1,'']]],
+  ['dest',['dest',['../structi2c__frame__s.html#aabdc66b3a91cad56af927df17b87e16f',1,'i2c_frame_s']]],
+  ['device',['device',['../structgs__i2c__master__driver__entry__t.html#a9da98880a2ed20c6e7e92423852dac86',1,'gs_i2c_master_driver_entry_t::device()'],['../structgs__i2c__slave__driver__entry__t.html#aac918eea943f84433715a4b7dfdead9a',1,'gs_i2c_slave_driver_entry_t::device()'],['../structgs__spi__slave__driver__entry__t.html#a05e65ac75af08159efcb3fda750dd65b',1,'gs_spi_slave_driver_entry_t::device()'],['../structcsp__usart__conf.html#a0ddb2df0cce0df38ab3083c59c4b1061',1,'csp_usart_conf::device()']]],
+  ['device_2eh',['device.h',['../device_8h.html',1,'']]],
+  ['disable_5fwatchdog',['disable_watchdog',['../structgs__csp__service__dispatcher__conf__t.html#a7fe525c67747da3eeb670ac33c3ede20',1,'gs_csp_service_dispatcher_conf_t']]],
+  ['do_5fcsp_5fdebug',['do_csp_debug',['../csp__debug_8h.html#a4c4bc183ba8c63bd5e152239c5a788ab',1,'csp_debug.h']]],
+  ['dport',['dport',['../unioncsp__id__t.html#afb7a112b55f7b9c347143af6d87a3488',1,'csp_id_t']]],
+  ['driver',['driver',['../structgs__gpio__driver__entry__t.html#a43818396b9f427648d53b07982a32258',1,'gs_gpio_driver_entry_t::driver()'],['../structgs__i2c__master__driver__entry__t.html#a62a8010acfeccd797d48cad30fb1cbc9',1,'gs_i2c_master_driver_entry_t::driver()'],['../structgs__i2c__slave__driver__entry__t.html#a933f963041137649b826e7d3f2764b42',1,'gs_i2c_slave_driver_entry_t::driver()'],['../structgs__spi__master__driver__entry__t.html#a1d13a78e480b88ec93dd2d84fbee1be6',1,'gs_spi_master_driver_entry_t::driver()'],['../structgs__spi__slave__driver__entry__t.html#a33b689203aeef9196e342b10b883af1b',1,'gs_spi_slave_driver_entry_t::driver()']]],
+  ['driver_5fdata',['driver_data',['../structgs__watchdog__device.html#ab5ab0459edd1884b37d44c992a5d443d',1,'gs_watchdog_device::driver_data()'],['../structgs__gpio__driver__entry__t.html#af3734c6126cc3f1036344f044656ecda',1,'gs_gpio_driver_entry_t::driver_data()'],['../structgs__i2c__master__driver__entry__t.html#a5805517c2eba57534931cc2482b8ce41',1,'gs_i2c_master_driver_entry_t::driver_data()'],['../structgs__i2c__slave__driver__entry__t.html#a2cbe045e5a15a1f2e08b616004cc1907',1,'gs_i2c_slave_driver_entry_t::driver_data()'],['../structgs__spi__master__driver__entry__t.html#a7576e7e56368519416c0bb3071cd5aa4',1,'gs_spi_master_driver_entry_t::driver_data()'],['../structgs__spi__slave__driver__entry__t.html#a795c02c2b004932f7144ec55b8615af2',1,'gs_spi_slave_driver_entry_t::driver_data()'],['../structcsp__iface__s.html#a3d31b60ba7607d987787548e9e77b844',1,'csp_iface_s::driver_data()']]],
+  ['drop',['drop',['../structcsp__iface__s.html#acb45c590ec36b8ece57fc758b669d9b6',1,'csp_iface_s']]],
+  ['drv',['drv',['../structgs__log__appender.html#ae6a5d631b7efb0eae5d1dc4d4ccf396e',1,'gs_log_appender::drv()'],['../structgs__vmem.html#a91ab4fb0c27250a83ef48be87dee82c8',1,'gs_vmem::drv()']]],
+  ['drv_5fconfig',['drv_config',['../structgs__log__appender.html#a548f78847100495e0759049b998fa2b7',1,'gs_log_appender']]],
+  ['drv_5fdata',['drv_data',['../structgs__log__appender.html#a0bf542d39116cddd849a99403cdabc42',1,'gs_log_appender::drv_data()'],['../structgs__vmem.html#af816ffa435651db4e0f02e2c1e64141c',1,'gs_vmem::drv_data()']]],
+  ['dst',['dst',['../unioncsp__id__t.html#ae54d2085c60f05386ad7bd9bb6177d2b',1,'csp_id_t']]]
+];

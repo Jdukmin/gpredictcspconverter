@@ -1,0 +1,45 @@
+#!/usr/bin/env python
+# encoding: utf-8
+# Copyright (c) 2013-2017 GomSpace A/S. All rights reserved.
+
+import os
+import gs_gcc
+import gs_dist
+from waflib.Build import BuildContext
+
+APPNAME = 'gosh_client'
+
+
+def options(ctx):
+    ctx.load('gs_gcc')
+    gs_gcc.gs_recurse(ctx)
+
+
+def configure(ctx):
+    ctx.load('gs_gcc')
+
+    ctx.env.append_unique('FILES_LIBGOSH_CLIENT', ['src/gscript/**/*.c'])
+    if ctx.gs_is_linux():
+        ctx.env.append_unique('FILES_LIBGOSH_CLIENT', ['src/remote/**/*.c'])
+
+    ctx.gs_add_doxygen(exclude=['*/include/gs/gosh/internal/*'])
+    gs_gcc.gs_recurse(ctx)
+
+
+def build(ctx):
+    gs_gcc.gs_recurse(ctx)
+
+    public_include = ctx.gs_include(name=APPNAME, includes=['include'])
+    use = ['gscsp', 'util', public_include]
+
+    ctx.gs_objects(source=ctx.path.ant_glob(ctx.env.FILES_LIBGOSH_CLIENT),
+                   target=APPNAME,
+                   use=use)
+
+    ctx.gs_shlib(source=ctx.path.ant_glob(ctx.env.FILES_LIBGOSH_CLIENT),
+                 target=APPNAME,
+                 gs_use_shlib=use)
+
+
+def gs_dist(ctx):
+    ctx.add_default_files(source_module=True)

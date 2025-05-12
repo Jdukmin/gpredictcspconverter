@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.11.3. Logging framework &mdash; Product Interface Application 2.7.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Product Interface Application 2.7.1 documentation" href="../../../index.html"/>
+        <link rel="up" title="3.11. Utility (libutil)" href="libutil.html"/>
+        <link rel="next" title="3.11.4. Software Watchdog" href="watchdog.html"/>
+        <link rel="prev" title="3.11.2. Software concepts and terminology" href="software.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../doc/index.html" class="icon icon-home"> Product Interface Application
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/csp-client.html">1. Product Interface Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/product_interfaces.html">2. Product Interfaces</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../doc/libraries.html">3. Libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../libaardvark/doc/libaardvark.html">3.1. Aardvark (libaardvark)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libgscsp/doc/libgscsp.html">3.2. GomSpace CSP (libgscsp)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libfp_client/doc/libfp_client.html">3.3. Flight Planner (libfp_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libftp_client/doc/libftp_client.html">3.4. FTP (libftp_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libgosh_client/doc/libgosh_client.html">3.5. GOSH (libgosh_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libgssb_client/doc/libgssb_client.html">3.6. GomSpace Sensor Bus (libgssb_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libhk_client/doc/libhk_client.html">3.7. Housekeeping (libhk_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libnanopb/doc/libnanopb.html">3.8. Nano Protobuf (libnanopb)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libparam_client/doc/libparam_client.html">3.9. Parameter System (libparam_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../librgosh_client/doc/librgosh_client.html">3.10. Remote GOSH (librgosh_client)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="libutil.html">3.11. Utility (libutil)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">3.11.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software.html">3.11.2. Software concepts and terminology</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.11.3. Logging framework</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#logging-hierarchy">3.11.3.1. Logging hierarchy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#logging-example-application">3.11.3.2. Logging example application</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="watchdog.html">3.11.4. Software Watchdog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command.html">3.11.5. Command (GOSH)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="commands.html">3.11.6. Commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/tools.html">4. Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/appendix/appendix.html">5. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../doc/index.html">Product Interface Application</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../doc/index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../doc/libraries.html">3. Libraries</a> &raquo;</li>
+      
+          <li><a href="libutil.html">3.11. Utility (libutil)</a> &raquo;</li>
+      
+    <li>3.11.3. Logging framework</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="logging-framework">
+<h1>3.11.3. Logging framework<a class="headerlink" href="#logging-framework" title="Permalink to this headline">¶</a></h1>
+<p>The Gomspace logging framework provides the ability to log to different destinations and in different domains/groups.
+The logging framework design is modeled after the <cite>log4xx</cite> design (for reference see:
+<a class="reference external" href="https://logging.apache.org/log4j/2.x/manual/architecture.html">log4j 2.x architecture</a>),
+with a number of simplifications in order to address small embedded system. For example is the logger hierarchy concept
+has been simplified, and formatting can only be controlled on <cite>appender</cite> level.</p>
+<p>A high-level design of the logging framework is shown below.</p>
+<div class="figure">
+<img alt="../../../_images/logging_hl_design.png" src="../../../_images/logging_hl_design.png" />
+</div>
+<p>The LogGroup provides the logging functionalities for the individual log domains/groups in the product -
+e.g CSP, Command, FTP, …. Each product can implement any number of logging groups.
+Each logging group support one filter type at any given time. Currently the only filter supported is a level mask filter.</p>
+<p>Each LogGroup can reference any number of LogAppenders (stores). The LogAppenders is responsible for writing the actual
+log statement to the “store”. The LogAppenders can also choose to filter the log statement depending on the associated filter.
+Currently the only supported filter of the LogAppender is a level mask filter.</p>
+<div class="section" id="logging-hierarchy">
+<h2>3.11.3.1. Logging hierarchy<a class="headerlink" href="#logging-hierarchy" title="Permalink to this headline">¶</a></h2>
+<p>There are use-cases in the logging system where a hierarchy of LogAppenders are beneficial.
+For instance all logging groups could log to the same overall “log telemetry” appender. The log telemetry appender
+will gather statistics of for instance error and warnings for each group. This will enable you to gather information
+on the current (health) status of the system. It is important that all groups logs to this telemetry LogAppender,
+otherwise it will not provide a true system status. A Logger Hierarchy will enable you to have LogAppenders that
+are default added to all groups whereas other LogAppenders will only be applied to certain log groups.</p>
+<p>An example of the LogGroup hierarchy is shown below. Each of the log groups is connected to a “Root” logger.
+This concept is identical to the <cite>log4xx</cite> concept. There is however only support for one level in the hierarchy
+of the GomSpace logging system. The Root logger group is as such similar to any other log group in the system,
+where a number of appenders can be attached. The root logger group will always be present in the system.</p>
+<p>The appenders attached to the root logger will always be called, so this way we can ensure that certain
+appenders are always called for all log groups. For each of the log groups a number of specific appenders
+can be added. These appenders referenced by the different log groups will be called
+- in addition to the appenders at the root.</p>
+<div class="figure">
+<img alt="../../../_images/logging_group_appender_hierarchy.png" src="../../../_images/logging_group_appender_hierarchy.png" />
+</div>
+<p>The above figure shows three categories of LogAppenders:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Obligatory LogAppenders (attached to root logger)</p>
+<blockquote>
+<div><ul class="simple">
+<li>Console logger</li>
+<li>Telemetry bit mask (error/warning bitmask)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Default LogAppenders (in this example attached to a number of groups, normally it will be attached to the root logger)</p>
+<blockquote>
+<div><ul class="simple">
+<li>FRAM Appender</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Customer Appenders (attached to one or more groups)</p>
+<blockquote>
+<div><ul class="simple">
+<li>Audit log for commands</li>
+<li>File store dedicated to param</li>
+<li>Other..</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="logging-example-application">
+<h2>3.11.3.2. Logging example application<a class="headerlink" href="#logging-example-application" title="Permalink to this headline">¶</a></h2>
+<p>Below is a simple application that shows an example of how to configure the
+logging framework for logging all to console, and executed commands to a file.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cm">/* Copyright (c) 2013-2018 GomSpace A/S. All rights reserved. */</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;gs/util/gosh/command.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;gs/util/gosh/console.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;gs/util/log/log.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;gs/util/log/appender/simple_file.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;gs/util/time.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;gs/util/thread.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;gs/util/vmem.h&gt;</span><span class="cp"></span>
+
+<span class="k">static</span> <span class="k">const</span> <span class="n">gs_log_appender_simple_file_config_t</span> <span class="n">simple_file_conf</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">.</span><span class="n">filename</span> <span class="o">=</span> <span class="s">&quot;logfile.txt&quot;</span><span class="p">,</span>
+    <span class="p">.</span><span class="n">truncate</span> <span class="o">=</span> <span class="nb">true</span><span class="p">,</span>
+    <span class="p">.</span><span class="n">use_local_time</span> <span class="o">=</span> <span class="nb">false</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="k">static</span> <span class="n">gs_log_appender_t</span> <span class="n">simple_file_appender</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;logfile&quot;</span><span class="p">,</span>
+    <span class="p">.</span><span class="n">drv</span>  <span class="o">=</span> <span class="o">&amp;</span><span class="n">gs_log_appender_simple_file_driver</span><span class="p">,</span>
+    <span class="p">.</span><span class="n">drv_config</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">simple_file_conf</span><span class="p">,</span>
+    <span class="p">.</span><span class="n">drv_data</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">,</span>
+    <span class="p">.</span><span class="n">mask</span> <span class="o">=</span> <span class="n">LOG_ERROR_MASK</span> <span class="o">|</span> <span class="n">LOG_WARNING_MASK</span> <span class="o">|</span> <span class="n">LOG_INFO_MASK</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="cm">/* Initialize log system and enable log to console */</span>
+    <span class="n">gs_log_init</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Welcome to the Util-app test application!</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Initialize command framework</span>
+    <span class="n">gs_command_init</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">gs_vmem_register_commands</span><span class="p">();</span>
+
+    <span class="c1">// Register logger for logning all executed commands to the group &#39;command&#39;</span>
+    <span class="n">gs_command_register_logger</span><span class="p">(</span><span class="n">gs_command_logger_default</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">gs_log_group_set_level_mask</span><span class="p">(</span><span class="s">&quot;command&quot;</span><span class="p">,</span> <span class="n">LOG_ERROR_MASK</span> <span class="o">|</span> <span class="n">LOG_WARNING_MASK</span> <span class="o">|</span> <span class="n">LOG_INFO_MASK</span><span class="p">);</span>
+
+    <span class="c1">// Add simple file log-appender on the &#39;command&#39; gruop */</span>
+    <span class="n">gs_log_appender_add</span><span class="p">(</span><span class="o">&amp;</span><span class="n">simple_file_appender</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">gs_log_group_register_appender</span><span class="p">(</span><span class="s">&quot;command&quot;</span><span class="p">,</span> <span class="n">simple_file_appender</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
+
+    <span class="c1">// Start console</span>
+    <span class="n">gs_console_start</span><span class="p">(</span><span class="s">&quot;util.app&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="c1">// Block forever</span>
+    <span class="n">gs_thread_block</span><span class="p">()</span> <span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="watchdog.html" class="btn btn-neutral float-right" title="3.11.4. Software Watchdog" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="software.html" class="btn btn-neutral" title="3.11.2. Software concepts and terminology" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 GomSpace A/S..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.7.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

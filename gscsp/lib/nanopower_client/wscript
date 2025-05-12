@@ -1,0 +1,61 @@
+#!/usr/bin/env python
+# encoding: utf-8
+# Copyright (c) 2013-2018 GomSpace A/S. All rights reserved.
+
+import os
+import gs_gcc
+import gs_util
+
+APPNAME = 'nanopower_client'
+
+
+def options(ctx):
+    ctx.load('gs_gcc')
+    gs_gcc.gs_recurse(ctx)
+
+    gr = ctx.add_option_group('Nanopower client options')
+    gr.add_option('--enable_nanopower_config_commands', default=True,
+                  action='store_true', help='Enable config commands')
+    gr.add_option('--disable-nanopower-config-commands', default=False,
+                  action='store_true', help='Disbale config commands')
+
+
+def configure(ctx):
+    ctx.load('gs_gcc')
+
+    enable_config = 1 if (ctx.options.enable_nanopower_config_commands and not
+                          ctx.options.disable_nanopower_config_commands) else 0
+    ctx.env.append_unique('DEFINES_NANOPOWER_CLIENT', 'NANOPOWER_ENABLE_CONFIG_COMMANDS=' + str(enable_config))
+
+    gs_gcc.gs_recurse(ctx)
+
+
+def build(ctx):
+    gs_gcc.gs_recurse(ctx)
+
+    public_include = ctx.gs_include(name=APPNAME, includes=['.', 'include'])
+
+    ctx.gs_call_handler(handler='param_gen_4_0', name=APPNAME, prefix='eps', generate_addr=False)
+
+    use = ['util', 'gscsp', public_include]
+    source = ['src/*.c']
+    ctx.gs_objects(source=ctx.path.ant_glob(source),
+                   target=APPNAME,
+                   defines=ctx.env.DEFINES_NANOPOWER_CLIENT,
+                   use=use)
+
+    ctx.gs_shlib(source=ctx.path.ant_glob(source),
+                 target=APPNAME,
+                 defines=ctx.env.DEFINES_NANOPOWER_CLIENT,
+                 gs_use_shlib=use)
+
+    ctx.gs_python_bindings(source=ctx.path.ant_glob('src/bindings/python/*.c'),
+                           target=APPNAME,
+                           gs_use_shlib=use+[APPNAME],
+                           package='libnanopower_client')
+
+
+def gs_dist(ctx):
+    ctx.add_default_files(source_module=True)
+    ctx.add_files(ctx.path.ant_glob('*.h'))
+    ctx.add_files(ctx.path.ant_glob('io/**'))

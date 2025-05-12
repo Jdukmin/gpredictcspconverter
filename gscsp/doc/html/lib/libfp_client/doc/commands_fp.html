@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.3.3.1. fp &mdash; Product Interface Application 2.7.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Product Interface Application 2.7.1 documentation" href="../../../index.html"/>
+        <link rel="up" title="3.3.3. Commands" href="commands.html"/>
+        <link rel="next" title="3.4. FTP (libftp_client)" href="../../libftp_client/doc/libftp_client.html"/>
+        <link rel="prev" title="3.3.3. Commands" href="commands.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../doc/index.html" class="icon icon-home"> Product Interface Application
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/csp-client.html">1. Product Interface Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/product_interfaces.html">2. Product Interfaces</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../doc/libraries.html">3. Libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../libaardvark/doc/libaardvark.html">3.1. Aardvark (libaardvark)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libgscsp/doc/libgscsp.html">3.2. GomSpace CSP (libgscsp)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="libfp_client.html">3.3. Flight Planner (libfp_client)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">3.3.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html">3.3.2. API</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="commands.html">3.3.3. Commands</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3.3.3.1. fp</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../libftp_client/doc/libftp_client.html">3.4. FTP (libftp_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libgosh_client/doc/libgosh_client.html">3.5. GOSH (libgosh_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libgssb_client/doc/libgssb_client.html">3.6. GomSpace Sensor Bus (libgssb_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libhk_client/doc/libhk_client.html">3.7. Housekeeping (libhk_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libnanopb/doc/libnanopb.html">3.8. Nano Protobuf (libnanopb)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libparam_client/doc/libparam_client.html">3.9. Parameter System (libparam_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../librgosh_client/doc/librgosh_client.html">3.10. Remote GOSH (librgosh_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libutil/doc/libutil.html">3.11. Utility (libutil)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/tools.html">4. Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/appendix/appendix.html">5. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../doc/index.html">Product Interface Application</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../doc/index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../doc/libraries.html">3. Libraries</a> &raquo;</li>
+      
+          <li><a href="libfp_client.html">3.3. Flight Planner (libfp_client)</a> &raquo;</li>
+      
+          <li><a href="commands.html">3.3.3. Commands</a> &raquo;</li>
+      
+    <li>3.3.3.1. fp</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fp">
+<h1>3.3.3.1. fp<a class="headerlink" href="#fp" title="Permalink to this headline">¶</a></h1>
+<p>A number of Commands are available for creating and editing Flight Planner entries, all placed in the <cite>fp</cite> command group.</p>
+<span id="table-gs-fp-commands"></span><table border="1" class="longtable docutils" id="id1">
+<caption><span class="caption-number">Table 3.1 </span><span class="caption-text">Command Table ‘fp’</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Command</th>
+<th class="head">&#160;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first last" id="cmd-gs-fp-fp-server">fp server</p>
+</td>
+<td><p class="first">Setup CSP address of FP server.</p>
+<p>Arguments:</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;server&gt;</span></code>: CSP address.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="cmd-gs-fp-fp-flush">fp flush</p>
+</td>
+<td>Flush current FP.</td>
+</tr>
+<tr class="row-even"><td><p class="first last" id="cmd-gs-fp-fp-load">fp load</p>
+</td>
+<td><p class="first">Load FP from file - Will Flush current FP.</p>
+<p>Arguments:</p>
+<p><code class="docutils literal"><span class="pre">&lt;path&gt;</span></code>: Local FP file to load. No more than 49 characters long.</p>
+<p class="last"><code class="docutils literal"><span class="pre">[fast_load_with_unique_keys]</span></code>: When set ALL keys in plan MUST be unique (advanced mode)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="cmd-gs-fp-fp-store">fp store</p>
+</td>
+<td><p class="first">Store current FP to file.</p>
+<p>Arguments:</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;path&gt;</span></code>: Local file to save current FP to. No more than 49 characters long.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last" id="cmd-gs-fp-fp-create">fp create</p>
+</td>
+<td><p class="first">Create new timer.</p>
+<p>Arguments:</p>
+<p><code class="docutils literal"><span class="pre">&lt;timer&gt;</span></code>: Name of the timer. No more than 29 characters long.</p>
+<p><code class="docutils literal"><span class="pre">&lt;[+]sec&gt;</span></code>: Absolute or relative time to execute the command. Prefix with ‘+’ for relative time.</p>
+<p><code class="docutils literal"><span class="pre">&lt;command&gt;</span></code>: Command to execute. No more than 59 characters long.</p>
+<p><code class="docutils literal"><span class="pre">[repeat]</span></code>: Number of times to repeat the command execution - only valid for relative timers.</p>
+<p class="last"><code class="docutils literal"><span class="pre">[state]</span></code>: Initial state of the timer, either ‘active’ or ‘dormant’.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="cmd-gs-fp-fp-delete">fp delete</p>
+</td>
+<td><p class="first">Delete timer.</p>
+<p>Arguments:</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;timer&gt;</span></code>: Timer name.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last" id="cmd-gs-fp-fp-active">fp active</p>
+</td>
+<td><p class="first">Set timer active.</p>
+<p>Arguments:</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;timer&gt;</span></code>: Timer name.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="cmd-gs-fp-fp-allactive">fp allactive</p>
+</td>
+<td>Set all timers active.</td>
+</tr>
+<tr class="row-even"><td><p class="first last" id="cmd-gs-fp-fp-dormant">fp dormant</p>
+</td>
+<td><p class="first">Set timer dormant.</p>
+<p>Arguments:</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;timer&gt;</span></code>: Timer name.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="cmd-gs-fp-fp-repeat">fp repeat</p>
+</td>
+<td><p class="first">Set timer repeat.</p>
+<p>Arguments:</p>
+<p><code class="docutils literal"><span class="pre">&lt;timer&gt;</span></code>: Timer name.</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;count&gt;</span></code>: Number of repeats.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last" id="cmd-gs-fp-fp-time">fp time</p>
+</td>
+<td><p class="first">Set execution time.</p>
+<p>Arguments:</p>
+<p><code class="docutils literal"><span class="pre">&lt;timer&gt;</span></code>: Timer name.</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;[+]sec&gt;</span></code>: Absolute or relative time to execute the command. Prefix with ‘+’ for relative time.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="cmd-gs-fp-fp-list">fp list</p>
+</td>
+<td>List timers.</td>
+</tr>
+</tbody>
+</table>
+<p>To interface with a remote Flight Planner Server, you first need to specify its CSP address using the <span class="xref std std-ref">fp server</span> command. The commands will then use this when connecting to the server.</p>
+<p>In the example below, we connect to the server and create a new Flight Planner entry to capture an image. The entry is configured to execute 10 seconds after being created, as specified with the <cite>+10</cite> argument. To add an entry with an absolute execution time, specify the time as a UNIX timestamp. We omit the repeat and state arguments since we just want the entry to run once:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">csp</span><span class="o">-</span><span class="n">term</span> <span class="c1"># fp server 1</span>
+<span class="n">csp</span><span class="o">-</span><span class="n">term</span> <span class="c1"># fp list</span>
+<span class="n">No</span> <span class="n">timers</span> <span class="ow">in</span> <span class="nb">list</span>
+<span class="n">csp</span><span class="o">-</span><span class="n">term</span> <span class="c1"># fp create</span>
+<span class="n">usage</span><span class="p">:</span> <span class="n">create</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">+</span><span class="p">]</span><span class="o">&lt;</span><span class="n">sec</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">command</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">repeat</span><span class="p">]</span> <span class="p">[</span><span class="n">state</span><span class="p">]</span>
+<span class="n">csp</span><span class="o">-</span><span class="n">term</span> <span class="c1"># fp create snap +10 &quot;cam snap -sa&quot;</span>
+<span class="n">csp</span><span class="o">-</span><span class="n">term</span> <span class="c1"># fp list</span>
+<span class="n">Timer</span>     <span class="n">Act</span> <span class="n">Basis</span> <span class="n">When</span>       <span class="n">Repeat</span> <span class="n">Remain</span> <span class="n">Event</span>
+<span class="n">snap</span>      <span class="n">Y</span>   <span class="n">Rel</span>   <span class="mi">10</span>         <span class="mi">1</span>      <span class="mi">1</span>      <span class="n">cam</span> <span class="n">snap</span> <span class="o">-</span><span class="n">sa</span>
+<span class="o">&lt;</span><span class="mi">10</span> <span class="n">seconds</span> <span class="k">pass</span> <span class="ow">and</span> <span class="n">snap</span> <span class="n">command</span> <span class="ow">is</span> <span class="n">executed</span><span class="o">&gt;</span>
+<span class="n">csp</span><span class="o">-</span><span class="n">term</span> <span class="c1"># fp list</span>
+<span class="n">Timer</span>     <span class="n">Act</span> <span class="n">Basis</span> <span class="n">When</span>       <span class="n">Repeat</span> <span class="n">Remain</span> <span class="n">Event</span>
+<span class="n">snap</span>      <span class="n">N</span>   <span class="n">Rel</span>   <span class="mi">10</span>         <span class="mi">1</span>      <span class="mi">0</span>      <span class="n">cam</span> <span class="n">snap</span> <span class="o">-</span><span class="n">sa</span>
+<span class="n">csp</span><span class="o">-</span><span class="n">term</span> <span class="c1"># fp active snap</span>
+<span class="n">csp</span><span class="o">-</span><span class="n">term</span> <span class="c1"># fp list</span>
+<span class="n">Timer</span>     <span class="n">Act</span> <span class="n">Basis</span> <span class="n">When</span>       <span class="n">Repeat</span> <span class="n">Remain</span> <span class="n">Event</span>
+<span class="n">snap</span>      <span class="n">Y</span>   <span class="n">Rel</span>   <span class="mi">10</span>         <span class="mi">1</span>      <span class="mi">1</span>      <span class="n">cam</span> <span class="n">snap</span> <span class="o">-</span><span class="n">sa</span>
+<span class="o">&lt;</span><span class="mi">10</span> <span class="n">seconds</span> <span class="k">pass</span> <span class="ow">and</span> <span class="n">snap</span> <span class="n">command</span> <span class="ow">is</span> <span class="n">executed</span><span class="o">&gt;</span>
+<span class="n">csp</span><span class="o">-</span><span class="n">term</span> <span class="c1"># fp delete snap</span>
+<span class="n">csp</span><span class="o">-</span><span class="n">term</span> <span class="c1"># fp list</span>
+<span class="n">No</span> <span class="n">timers</span> <span class="ow">in</span> <span class="nb">list</span>
+</pre></div>
+</div>
+<p>The <span class="xref std std-ref">fp list</span> command can be used to list the current entries. In the example above, the entry is marked as <em>active</em> with the remaining number of executions equal to 1 (<code class="docutils literal"><span class="pre">Act</span> <span class="pre">=</span> <span class="pre">Y,</span> <span class="pre">Remain</span> <span class="pre">=</span> <span class="pre">1</span></code>). After being executed, a command can be activated again using <span class="xref std std-ref">fp active</span> or deleted using <span class="xref std std-ref">fp delete</span>.</p>
+<p>Using the <span class="xref std std-ref">fp store</span> and <span class="xref std std-ref">fp load</span> commands, it is possible to store and load Flight Planner entries to the file system. Entries are stored as lines of ASCII text in the following comma-separated format:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">name</span><span class="p">,</span><span class="n">command</span><span class="p">,</span><span class="n">state</span><span class="p">,</span><span class="n">basis</span><span class="p">,</span><span class="n">last_sec</span><span class="p">,</span><span class="n">last_nsec</span><span class="p">,</span><span class="n">when_sec</span><span class="p">,</span><span class="n">when_nsec</span><span class="p">,</span><span class="n">repeat</span>
+</pre></div>
+</div>
+<p>Any line starting with a <code class="docutils literal"><span class="pre">#</span></code> will be treated as a comment.</p>
+<p>The table <a class="reference internal" href="#table-fp-file"><span class="std std-ref">Flight plan file</span></a> explains each of the entries.</p>
+<span id="table-fp-file"></span><table border="1" class="longtable docutils" id="id2">
+<caption><span class="caption-number">Table 3.2 </span><span class="caption-text">Flight plan file</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Entry</th>
+<th class="head">Explanation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>name</td>
+<td><p class="first">Unique id of the timer.</p>
+<p class="last">ASCII string of a maximum of 29 characters.</p>
+</td>
+</tr>
+<tr class="row-odd"><td>command</td>
+<td><p class="first">The command to execute.</p>
+<p class="last">ASCII string of a maximum of 119 characters.</p>
+</td>
+</tr>
+<tr class="row-even"><td>state</td>
+<td>Specifies whether the timer is active (0) or dormant (1).</td>
+</tr>
+<tr class="row-odd"><td>basis</td>
+<td>Specifies whether the timer is an absolute (0) or relative (1) timer.</td>
+</tr>
+<tr class="row-even"><td>last_sec</td>
+<td>The last execution timestamp seconds part. Ignored for absolute timers.</td>
+</tr>
+<tr class="row-odd"><td>last_nsec</td>
+<td>The last execution timestamp nanoseconds part. Ignored for absolute timers.</td>
+</tr>
+<tr class="row-even"><td>when_sec</td>
+<td>Execution timestamp seconds part.</td>
+</tr>
+<tr class="row-odd"><td>when_nsec</td>
+<td>Execution timestamp nanoseconds part.</td>
+</tr>
+<tr class="row-even"><td>repeat</td>
+<td>Number of repeats. Only for relative timers.</td>
+</tr>
+</tbody>
+</table>
+<p>If a line in a flight plan file has an error, that specific timer will be discarded, the rest will be loaded.</p>
+<p>So an active <cite>cam snap -sa</cite> command named <cite>snap</cite> scheduled for execution on UNIX time 1500000000 would look like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="n">snap</span><span class="p">,</span><span class="n">cam</span> <span class="n">snap</span> <span class="o">-</span><span class="n">sa</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1500000000</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../libftp_client/doc/libftp_client.html" class="btn btn-neutral float-right" title="3.4. FTP (libftp_client)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="commands.html" class="btn btn-neutral" title="3.3.3. Commands" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 GomSpace A/S..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.7.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.1.4. Docker functionality &mdash; Product Interface Application 2.7.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Product Interface Application 2.7.1 documentation" href="../../../index.html"/>
+        <link rel="up" title="4.1. BuildTools" href="buildtools.html"/>
+        <link rel="next" title="4.1.5. Setting up gsbuildall.py" href="gsbuildall.html"/>
+        <link rel="prev" title="4.1.1. Introduction" href="introduction.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../doc/index.html" class="icon icon-home"> Product Interface Application
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/csp-client.html">1. Product Interface Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/product_interfaces.html">2. Product Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/libraries.html">3. Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/tools.html">4. Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/appendix/appendix.html">5. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../doc/index.html">Product Interface Application</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../doc/index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../doc/tools.html">4. Tools</a> &raquo;</li>
+      
+          <li><a href="buildtools.html">4.1. BuildTools</a> &raquo;</li>
+      
+    <li>4.1.4. Docker functionality</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="docker-functionality">
+<h1>4.1.4. Docker functionality<a class="headerlink" href="#docker-functionality" title="Permalink to this headline">¶</a></h1>
+<p>Buildtools adds support for building GomSpace assets and projects within docker containers.</p>
+<div class="section" id="prerequisites">
+<h2>4.1.4.1. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>The user is required to have docker installed. On Ubuntu 16.04 this can be achieved by:</p>
+<div class="highlight-shell"><div class="highlight"><pre>sudo apt-get install docker.io
+</pre></div>
+</div>
+<p>The user is required to be in the docker group: (This step requires that you logout and back in)</p>
+<div class="highlight-shell"><div class="highlight"><pre>sudo adduser &lt;yourname&gt; docker
+</pre></div>
+</div>
+<p>To use the internal Gomspace Docker registry the certificate must be downloaded:</p>
+<div class="highlight-shell"><div class="highlight"><pre>wget http://jw-file-srv/gs-docker-reg-server.crt
+sudo mkdir -p /etc/docker/certs.d/gs-docker-reg:443
+sudo mv gs-docker-reg-server.crt /etc/docker/certs.d/gs-docker-reg:443/ca.crt
+sudo systemctl restart docker
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-docker-with-buildtools">
+<h2>4.1.4.2. Using Docker with Buildtools<a class="headerlink" href="#using-docker-with-buildtools" title="Permalink to this headline">¶</a></h2>
+<p>Buildtools uses docker by default.</p>
+<p>When calling gsbuildtools_bootstrap.py the usual <code class="docutils literal"><span class="pre">waf</span></code> symlink is replaced with a symlink to
+<code class="docutils literal"><span class="pre">buildtools/bin/dock_waf</span></code>, the link is still called <code class="docutils literal"><span class="pre">waf</span></code>.
+This script will prepend all calls to <code class="docutils literal"><span class="pre">waf</span></code> with the correct docker command and arguments.</p>
+<p>As <code class="docutils literal"><span class="pre">gsbuildall.py</span></code> also uses the symlinked <code class="docutils literal"><span class="pre">waf</span></code> commands executed by <code class="docutils literal"><span class="pre">gsbuildall.py</span></code> will also be executed
+inside docker containers.</p>
+<div class="section" id="mounted-environment">
+<h3>4.1.4.2.1. Mounted Environment<a class="headerlink" href="#mounted-environment" title="Permalink to this headline">¶</a></h3>
+<p>By default buildtools will mount the current project directory and the path to the bootstrapped buildtools.
+If you want to use e.g. symlinks between different projects you can tell buildtools to mount a different path.
+This is handled by the internal function:</p>
+<dl class="function">
+<dt id="gs.buildtools.docker_functions._get_workspace_root">
+<code class="descclassname">gs.buildtools.docker_functions.</code><code class="descname">_get_workspace_root</code><span class="sig-paren">(</span><em>path='.'</em><span class="sig-paren">)</span><a class="headerlink" href="#gs.buildtools.docker_functions._get_workspace_root" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search for a file called .gs_workspace_root recursively up from current dir</p>
+<p>If you have a common folder holding all your gomspace repositories called ‘workspace’, you could create
+‘workspace/.gs_workspace_root’ and buildtools will then mount that instead of the current project and the
+buildtools path.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">dirname if found otherwise None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="programmer-support">
+<h2>4.1.4.3. Programmer Support<a class="headerlink" href="#programmer-support" title="Permalink to this headline">¶</a></h2>
+<p>Please refer to the internal function in buildtools:</p>
+<dl class="function">
+<dt id="gs.buildtools.docker_functions._get_device_args">
+<code class="descclassname">gs.buildtools.docker_functions.</code><code class="descname">_get_device_args</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gs.buildtools.docker_functions._get_device_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>If any known programmers are present add them as a resource for docker and add the user to the
+groups required (plugdev and dialout). Please note that when a PEAK dongle is seen all network interfaces
+are added to the container.</p>
+<p>Currently supported programmers and tools are:</p>
+<p>AVR Dragon</p>
+<p>Aardvark dongle</p>
+<p>Olimex JTAG programmer</p>
+<p>PEAK System PCAN-USB</p>
+</dd></dl>
+
+</div>
+<div class="section" id="binding-to-versions">
+<h2>4.1.4.4. Binding to Versions<a class="headerlink" href="#binding-to-versions" title="Permalink to this headline">¶</a></h2>
+<p>Binding to a specific version of a docker image is handled by the internal function:</p>
+<dl class="function">
+<dt id="gs.buildtools.docker_functions._resolve_required_version">
+<code class="descclassname">gs.buildtools.docker_functions.</code><code class="descname">_resolve_required_version</code><span class="sig-paren">(</span><em>image</em>, <em>fn='dependencies.json'</em><span class="sig-paren">)</span><a class="headerlink" href="#gs.buildtools.docker_functions._resolve_required_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>resolve the version required by the project
+If no versions can be extracted from the project the versions from buildtools will be used
+Add something like the following as entry to dependencies.json</p>
+<p>“type”: “docker”,</p>
+<p>“min_version”: “x.y.z”,</p>
+<p>“name”: “container_name”</p>
+<p>The same version will be used for all pulled images</p>
+</dd></dl>
+
+</div>
+<div class="section" id="controlling-container-versions">
+<h2>4.1.4.5. Controlling Container Versions<a class="headerlink" href="#controlling-container-versions" title="Permalink to this headline">¶</a></h2>
+<p>Each version of buildtools has a binding towards a set of container versions. These versions are configured in
+dependencies.json of buildtools. Each project/assert can override these versions by specifying their own version in
+dependencies.json.</p>
+<p>In the dependencies.json example below, the container pasw-linux is bound to version 0.7.0.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use the special type “docker”</p>
+</div>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;dependencies&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;min_version&quot;</span><span class="p">:</span> <span class="s2">&quot;0.7.0&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pasw-linux&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;docker&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="building-without-docker">
+<h2>4.1.4.6. Building without Docker<a class="headerlink" href="#building-without-docker" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to build locally by bootstrapping the project with the <code class="docutils literal"><span class="pre">--no-docker</span></code> argument.</p>
+<div class="highlight-shell"><div class="highlight"><pre>./tools/buildtools/gsbuildtools_bootstrap.py --no-docker
+</pre></div>
+</div>
+<p>When <code class="docutils literal"><span class="pre">--no-docker</span></code> is used the standard waf is used and build commands are done directly on the local on the local machine.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gsbuildall.html" class="btn btn-neutral float-right" title="4.1.5. Setting up gsbuildall.py" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="4.1.1. Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 GomSpace A/S..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.7.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

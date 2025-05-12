@@ -1,0 +1,96 @@
+#!/usr/bin/env python
+# encoding: utf-8
+# Copyright (c) 2013-2018 GomSpace A/S. All rights reserved.
+
+import os
+import sys
+import subprocess
+import gs_gcc
+import gs_doc
+import gs_dist
+from waflib.Build import BuildContext
+
+APPNAME = 'nanopb'
+
+
+def generate_nano_protoc_plugin(ctx):
+    make = ['make', '-C', os.path.join(str(ctx.path.abspath()), 'tools/generator/proto')]
+    if ctx.cmd == 'build':
+        make += ['all']
+    elif ctx.cmd == 'clean':
+        make += ['clean']
+    else:
+        return
+
+    exit_code = subprocess.Popen(make).wait()
+    sys.stdout.flush()
+    sys.stderr.flush()
+    if exit_code:
+        raise Exception("Command: [%s] failed, exit code: %s" % (make, str(exit_code)))
+
+
+def protoc(task):
+    src = task.inputs[0].abspath()
+    dir = task.inputs[0].parent.abspath()
+    cmd = 'protoc --python_out=%s --proto_path=%s %s' % (dir, dir, src)
+    return task.exec_command(cmd)
+
+
+def options(ctx):
+    ctx.load('gs_gcc gs_doc')
+    gs_gcc.gs_recurse(ctx)
+
+
+def configure(ctx):
+    ctx.load('gs_gcc gs_doc')
+
+    ctx.env.GS_PROTOC = ctx.find_program("protoc", var="PROTOC", mandatory=False)
+    ctx.env.GS_PROTOC_GEN_DOC = ctx.find_program("protoc-gen-doc", var="PROTOC_GEN_DOC", mandatory=False)
+    ctx.env.GS_PROTOC_GEN_NANOPB = ctx.find_program("protoc-gen-nanopb", var="PROTOC_GEN_NANOPB", mandatory=False,
+                                                    path_list=os.path.join(ctx.path.abspath(), ("tools/generator/")))
+
+    if ctx.env.GS_PROTOC:
+        ctx.gs_register_handler(function='nano_proto_gen_3_9',
+                                filepath='./python/gs/nanopb/waf_nano_proto.py')
+        ctx.gs_register_handler(function='nano_proto_gen_1_1',
+                                filepath='./python/gs/nanopb/waf_nano_proto.py')
+
+    gs_gcc.gs_recurse(ctx)
+
+
+def build(ctx):
+    gs_gcc.gs_recurse(ctx)
+
+    if ctx.env.GS_PROTOC:
+        generate_nano_protoc_plugin(ctx)
+
+    public_include = ctx.gs_include(name=APPNAME, includes=['include', 'include/deprecated'])
+    source = ctx.path.ant_glob(['src/nanopb/*.c'])
+
+    ctx.gs_objects(source=source,
+                   target=APPNAME,
+                   defines=ctx.env.DEFINES_NANOPB,
+                   use=[public_include])
+
+    ctx.gs_shlib(source=source,
+                 target=APPNAME,
+                 defines=ctx.env.DEFINES_NANOPB,
+                 gs_use_shlib=[public_include])
+
+
+def doc(ctx):
+    gs_doc.library(ctx, keyvalues={
+        'gs_prod_name': 'lib'+APPNAME,
+        'gs_prod_desc': 'Nano ProtoBuf (nanopb) Library',
+        'gs_watermark_text': 'INTERNAL',
+    })
+
+
+class Doc(BuildContext):
+    cmd = fun = 'doc'
+
+
+def gs_dist(ctx):
+    ctx.add_default_files(source_module=True)
+    ctx.add_files(ctx.path.ant_glob('tools/generator/**'))
+    ctx.add_license_file("nanopb", "doc/LICENSE.txt")

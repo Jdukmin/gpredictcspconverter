@@ -1,0 +1,644 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>General description of GSPP &mdash; Product Interface Application 2.7.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Product Interface Application 2.7.1 documentation" href="../../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../doc/index.html" class="icon icon-home"> Product Interface Application
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/csp-client.html">1. Product Interface Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/product_interfaces.html">2. Product Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/libraries.html">3. Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/tools.html">4. Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/appendix/appendix.html">5. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../doc/index.html">Product Interface Application</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../doc/index.html">Docs</a> &raquo;</li>
+      
+    <li>General description of GSPP</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="general-description-of-gspp">
+<h1>General description of GSPP<a class="headerlink" href="#general-description-of-gspp" title="Permalink to this headline">¶</a></h1>
+<p>A basic understanding of I2C communication is expected to make this section meaningful. General info on I2c can be found here <a class="reference external" href="https://en.wikipedia.org/wiki/I%C2%B2C">https://en.wikipedia.org/wiki/I%C2%B2C</a></p>
+<p>It should be noted, that this section only describes the interfaces. The actual use of the device in relation to other components is described in the accompanying application note.</p>
+<p>The main idea in this system is that all operations happens on a data structure called ‘table’. The system supports 8 tables, of which some are common for most devices. Tables are basically arrays of bytes, which will be interpreted according to some header files (.h) which are code-generated. Tables can be locked or unlocked. Locked tables are effectively read-only data, which might or might not change in the target. It can be static info, like serial number, revision…. or it can be live-data, like temperature, uptime….</p>
+<p>Unlocked tables could be commands, references or other data, which are subject to change during operation.</p>
+<p>A locked table can be unlocked, and changes can be made to data elements. When done, table can be locked again, to ensure no corruption.</p>
+<p>general: all changes to tables are persistent, and will survive reboot. Special cases might exist, and they are described in relevant data sheet.</p>
+<div class="section" id="technical-details">
+<h2>Technical details<a class="headerlink" href="#technical-details" title="Permalink to this headline">¶</a></h2>
+<p>We use the most basic, and simplest version, single master mode,</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">mode:</th><td class="field-body">7-bit addressing</td>
+</tr>
+<tr class="field-even field"><th class="field-name">speed:</th><td class="field-body">100khz</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">data-order:</th><td class="field-body">MSB</td>
+</tr>
+</tbody>
+</table>
+<p>Uninitialized devices will be accessible at id=5 - should not happen under normal use / condition.</p>
+</div>
+<div class="section" id="data-frames">
+<h2>Data frames<a class="headerlink" href="#data-frames" title="Permalink to this headline">¶</a></h2>
+<p>Data frames have this general structure:</p>
+<img alt="../../../_images/i2cstandart.png" src="../../../_images/i2cstandart.png" />
+<dl class="docutils">
+<dt>meaning of bytes:</dt>
+<dd><ol class="first arabic simple" start="0">
+<li>is the address of the device which is wanted to read/write to.</li>
+<li>contains 2 sub elements</li>
+</ol>
+<blockquote>
+<div><ul>
+<li><p class="first">domain</p>
+<p>should be 4 for normal operations, and to ensure no clashes with other older protocol types.</p>
+</li>
+<li><p class="first">Command</p>
+<p>there are 6 commands</p>
+<ul>
+<li><p class="first">GS_PARAM_I2C_COMMAND_SET = 1</p>
+<p>set a element on target device according to table and data length elements</p>
+<p><strong>table, address, datalength</strong> are required to be populated.</p>
+</li>
+<li><p class="first">GS_PARAM_I2C_COMMAND_GET = 2</p>
+<p>read a element on target device according to table and data length elements</p>
+<p><strong>table, address, datalength</strong> are required to be populated.</p>
+<dl class="docutils">
+<dt><em>return value</em></dt>
+<dd><p class="first last">target data, according to table and data length</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">GS_PARAM_I2C_COMMAND_SET_LOCK = 3</p>
+<p>0 = open the lock, and allow writings to tables</p>
+<p>1 = set the lock, and prohibit further writings to tables</p>
+<p><strong>table</strong> are required to be populated.</p>
+<p><strong>datalength</strong> are required to be populated. (set to 1)</p>
+<p>This command can ‘open’ or ‘lock’ tables i target. Firmware is born with some tables open and some locked. Sometimes it’s necessary to make changes to locked tables, and to do that, the table must be unlocked. This is a protection mechanism to reduce risk of make fatal changes.</p>
+</li>
+</ul>
+<blockquote>
+<div><p>NOTE only table element in dataframe is used for this command.</p>
+</div></blockquote>
+<ul>
+<li><p class="first">GS_PARAM_I2C_COMMAND_GET_LOCK = 4</p>
+<p>read back the state of the lock in target.</p>
+<p><strong>table</strong> are required to be populated.</p>
+<p><strong>datalength</strong> are required to be populated. (set to 1)</p>
+<p><em>return value</em></p>
+<p>0 = the table is open for writing</p>
+<p>1 = the table is locked, and writing is not possible</p>
+<blockquote>
+<div><p>NOTE only table element in dataframe is used for this command.</p>
+<img alt="../../../_images/lockUnlock.png" src="../../../_images/lockUnlock.png" />
+</div></blockquote>
+</li>
+<li><p class="first">GS_PARAM_I2C_COMMAND_SET_WITH_CHECKSUM = 10</p>
+<p>This function works the same way as <strong>GS_PARAM_I2C_COMMAND_SET</strong>, except for the CRC, which is not a real CRC, but only a sum of all bytes in the frame -starting from 0- , and if the sum is 0, it will be converted to 1.</p>
+</li>
+<li><p class="first">GS_PARAM_I2C_COMMAND_GET_WITH_CHECKSUM = 11</p>
+<p>This function works the same way as <strong>GS_PARAM_I2C_COMMAND_GET</strong>, except for the CRC, which is not a real CRC, but only a sum of all bytes in the frame -starting from 0- , and if the sum is 0, it will be converted to 1.</p>
+<blockquote>
+<div><img alt="../../../_images/I2C_CRC.png" src="../../../_images/I2C_CRC.png" />
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>also contains 2 sub elements</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>data_length: 5 bit’s making room for 32 bytes.</li>
+<li>table : 3 bits allow for 8 tables. Some of the table numbers are assigned for specific purposes, they can be seen here: <a class="reference external" href="https://gomspace.atlassian.net/wiki/spaces/PAS/pages/54034460/Guideline+for+parameter+tables+and+types">https://gomspace.atlassian.net/wiki/spaces/PAS/pages/54034460/Guideline+for+parameter+tables+and+types</a></li>
+</ul>
+</div></blockquote>
+<ol class="last arabic simple" start="3">
+<li>is index into the data array, which is accessed. This allows for access to 256 bytes, and would theoretically allow for access outside valid data in target. So in the target, a check is implemented to ensure that don’t happen.</li>
+</ol>
+</dd>
+</dl>
+</div>
+<div class="section" id="general-examples">
+<h2>General Examples<a class="headerlink" href="#general-examples" title="Permalink to this headline">¶</a></h2>
+<p>read content of table 0 Lock</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="22%" />
+<col width="26%" />
+<col width="6%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">address of slave</th>
+<th class="head">domain + command</th>
+<th class="head">data length + table</th>
+<th class="head">addr</th>
+<th class="head">data</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>5</td>
+<td>0x84</td>
+<td>0x08</td>
+<td>00</td>
+<td>0x00</td>
+</tr>
+</tbody>
+</table>
+<p>open table 0 for writing</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="22%" />
+<col width="26%" />
+<col width="6%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">address of slave</th>
+<th class="head">domain + command</th>
+<th class="head">data length + table</th>
+<th class="head">addr</th>
+<th class="head">data</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>5</td>
+<td>0x83</td>
+<td>0x08</td>
+<td>00</td>
+<td>0x00</td>
+</tr>
+</tbody>
+</table>
+<p>Write 0x82828282 to address 02 in table 0</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="22%" />
+<col width="26%" />
+<col width="6%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">address of slave</th>
+<th class="head">domain + command</th>
+<th class="head">data length + table</th>
+<th class="head">addr</th>
+<th class="head">data</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>5</td>
+<td>0x81</td>
+<td>0x20</td>
+<td>00</td>
+<td>0x82828282</td>
+</tr>
+</tbody>
+</table>
+<p>read back the same table(0) and address(0x02)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="22%" />
+<col width="26%" />
+<col width="6%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">address of slave</th>
+<th class="head">domain + command</th>
+<th class="head">data length + table</th>
+<th class="head">addr</th>
+<th class="head">data</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>5</td>
+<td>0x82</td>
+<td>0x20</td>
+<td>00</td>
+<td>0x02</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>change board I2C address from 5 to 6</dt>
+<dd>unlock board table
+change address
+lock board table again
+:note: I2C address first changes AFTER reboot !!</dd>
+</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="22%" />
+<col width="26%" />
+<col width="6%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">address of slave</th>
+<th class="head">domain + command</th>
+<th class="head">data length + table</th>
+<th class="head">addr</th>
+<th class="head">data</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>5</td>
+<td>0x83</td>
+<td>0x08</td>
+<td>00</td>
+<td>0x00</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>0x81</td>
+<td>0x08</td>
+<td>12</td>
+<td>0x06</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>0x83</td>
+<td>0x08</td>
+<td>00</td>
+<td>0x01</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="releaseboard-examples">
+<h1>Releaseboard examples<a class="headerlink" href="#releaseboard-examples" title="Permalink to this headline">¶</a></h1>
+<p>blabla… some samples… !!!</p>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>clear lock for table 0</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="27%" />
+<col width="32%" />
+<col width="7%" />
+<col width="7%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">address of slave</th>
+<th class="head">domain + command</th>
+<th class="head">data length + table</th>
+<th class="head">addr</th>
+<th class="head">data</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>5</td>
+<td>0x83</td>
+<td>0x08</td>
+<td>00</td>
+<td>0x00</td>
+</tr>
+</tbody>
+</table>
+<p>write “gomspace ant2s+” into the board-string</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="19%" />
+<col width="4%" />
+<col width="44%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">address of slave</th>
+<th class="head">domain + command</th>
+<th class="head">data length + table</th>
+<th class="head">addr</th>
+<th class="head">data</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>5</td>
+<td>0x81</td>
+<td>0x80</td>
+<td>00</td>
+<td>67 6F 6D 73 70 61 63 65 20 61 6E 74 32 73 2B</td>
+</tr>
+</tbody>
+</table>
+<p>unlock control table:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="27%" />
+<col width="32%" />
+<col width="7%" />
+<col width="7%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">address of slave</th>
+<th class="head">domain + command</th>
+<th class="head">data length + table</th>
+<th class="head">addr</th>
+<th class="head">data</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>5</td>
+<td>0x83</td>
+<td>0x0b</td>
+<td>00</td>
+<td>0x00</td>
+</tr>
+</tbody>
+</table>
+<p>set burn-time for resistor 0 to 3 seconds</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="27%" />
+<col width="32%" />
+<col width="7%" />
+<col width="7%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">address of slave</th>
+<th class="head">domain + command</th>
+<th class="head">data length + table</th>
+<th class="head">addr</th>
+<th class="head">data</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>5</td>
+<td>0x81</td>
+<td>0x0b</td>
+<td>00</td>
+<td>0x03</td>
+</tr>
+</tbody>
+</table>
+<p>enable backup deployment</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="27%" />
+<col width="32%" />
+<col width="7%" />
+<col width="7%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">address of slave</th>
+<th class="head">domain + command</th>
+<th class="head">data length + table</th>
+<th class="head">addr</th>
+<th class="head">data</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>5</td>
+<td>0x81</td>
+<td>0x09</td>
+<td>00</td>
+<td>0x01</td>
+</tr>
+</tbody>
+</table>
+<p>read telemetry data - uptime</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="27%" />
+<col width="32%" />
+<col width="7%" />
+<col width="7%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">address of slave</th>
+<th class="head">domain + command</th>
+<th class="head">data length + table</th>
+<th class="head">addr</th>
+<th class="head">data</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>5</td>
+<td>0x82</td>
+<td>0x24</td>
+<td>00</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>-will return 4 bytes, ie: 0x39 0x06 0x00 0x00 -&gt; 1593 sek</p>
+<p>read bootcount</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="27%" />
+<col width="27%" />
+<col width="32%" />
+<col width="7%" />
+<col width="7%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">address of slave</th>
+<th class="head">domain + command</th>
+<th class="head">data length + table</th>
+<th class="head">addr</th>
+<th class="head">data</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>5</td>
+<td>0x82</td>
+<td>0x14</td>
+<td>04</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>-will return 2 bytes, ie: 0x4F 0x00 -&gt; 79</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 GomSpace A/S..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.7.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

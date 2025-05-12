@@ -1,0 +1,62 @@
+#!/usr/bin/env python
+# encoding: utf-8
+# Copyright (c) 2013-2018 GomSpace A/S. All rights reserved.
+
+import os
+import gs_gcc
+import gs_dist
+
+APPNAME = 'hk_client'
+
+
+def options(ctx):
+    ctx.load('gs_gcc')
+    gs_gcc.gs_recurse(ctx)
+
+
+def configure(ctx):
+    ctx.load('gs_gcc')
+
+    ctx.env.append_unique('USES_HK_CLIENT', ['util', 'gscsp'])
+    ctx.env.append_unique('FILES_HK_CLIENT', ['src/cmd/*.c', 'src/request/*.c'])
+
+    ctx.gs_add_doxygen(exclude=['*/include/gs/hk/internal/*'])
+
+    gs_gcc.gs_recurse(ctx)
+
+
+def build(ctx):
+    gs_gcc.gs_recurse(ctx)
+
+    ctx.gs_call_handler(handler='param_gen_4_3', name=APPNAME, prefix='hk',
+                        generate_client=True, generate_rsti=True)
+
+    ctx.gs_call_handler(handler='command_gen_4_0', name=APPNAME,
+                        generate_src=True,
+                        generate_rst_sections=True,
+                        generate_rsti_table=True)
+
+    public_include = ctx.gs_include(name=APPNAME, includes=['include'])
+
+    ctx.gs_objects(source=ctx.path.ant_glob(ctx.env.FILES_HK_CLIENT),
+                   target=APPNAME,
+                   use=ctx.env.USES_HK_CLIENT + [public_include])
+
+    ctx.gs_shlib(source=ctx.path.ant_glob(ctx.env.FILES_HK_CLIENT),
+                 target=APPNAME,
+                 gs_use_shlib=ctx.env.USES_HK_CLIENT,
+                 use=[public_include])
+
+    ctx.gs_python_bindings(source=ctx.path.ant_glob('src/bindings/python/*.c'),
+                           target=APPNAME,
+                           gs_use_shlib=ctx.env.USES_HK_CLIENT + [APPNAME],
+                           package='libhk')
+
+    gs_gcc.gs_register_python_module(ctx,
+                                     source=ctx.path.ant_glob('python/hk/*.py'),
+                                     install_from='python',
+                                     name=APPNAME)
+
+
+def gs_dist(ctx):
+    ctx.add_default_files(source_module=True)

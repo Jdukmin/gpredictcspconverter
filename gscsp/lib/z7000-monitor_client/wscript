@@ -1,0 +1,29 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
+import gs_util
+
+APPNAME = 'z7000-monitor-client'
+
+def options(ctx):
+    pass
+
+def configure(ctx):
+    pass
+
+def build(ctx):
+
+    ctx(export_includes = 'include', name = APPNAME + '_h')
+    
+    ctx.objects(source = ctx.path.ant_glob('*.c'), 
+                target = APPNAME,
+                includes = 'include',
+                export_includes = '.',
+                use = ['csp', 'gosh', 'param', 'param_client', 'util'])
+
+    gs_util.add_task_param_gen(ctx, APPNAME, 'soft')
+
+
+def gs_dist(ctx):
+    ctx.add_default_files(source_module=True)
+    ctx.add_files(ctx.path.ant_glob('*.c'))

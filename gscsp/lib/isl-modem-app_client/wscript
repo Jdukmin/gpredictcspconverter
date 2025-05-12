@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
+import gs_util
+
+APPNAME = 'isl-modem-app-client'
+
+def options(ctx):
+    pass
+
+def configure(ctx):
+    pass
+
+def build(ctx):
+
+    ctx(export_includes = 'include', name = APPNAME + '_h')
+
+    gs_util.add_task_param_gen(ctx, APPNAME, 'isl', 'conf/isl_tables.json')
+
+
+def gs_dist(ctx):
+    ctx.add_default_files(source_module=True)

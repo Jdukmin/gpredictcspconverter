@@ -1,0 +1,66 @@
+#!/usr/bin/env python
+# encoding: utf-8
+# Copyright (c) 2013-2018 GomSpace A/S. All rights reserved.
+
+import gs_gcc
+import gs_doc
+import gs_dist
+from waflib.Build import BuildContext
+
+APPNAME = 'aardvark'
+
+
+def options(ctx):
+    ctx.load('gs_gcc')
+    gs_gcc.gs_recurse(ctx)
+
+
+def configure(ctx):
+    ctx.load('gs_gcc')
+
+    ctx.gs_add_doxygen(exclude=['*/include/gs/aardvark/drivers/aardvark/aardvark.h'])
+
+    gs_gcc.gs_recurse(ctx)
+
+
+def build(ctx):
+    gs_gcc.gs_recurse(ctx)
+
+    public_include = ctx.gs_include(name=APPNAME, includes=['include'])
+
+    if ctx.gs_is_linux64():  # libaardvark has no 32 bit library
+        ctx.read_shlib(name='aardvark_c', paths=['./lib/lib64'])
+
+        source_files = ['src/*.c', 'src/drivers/**/*.c']
+
+        ctx.gs_objects(source=ctx.path.ant_glob(source_files),
+                       target=APPNAME,
+                       use=['util', public_include])
+
+        ctx.gs_shlib(source=ctx.path.ant_glob(source_files),
+                     target=APPNAME,
+                     lib=['dl'],
+                     gs_use_shlib=['util'],
+                     use=['aardvark_c', public_include])
+
+        ctx.gs_python_bindings(source=ctx.path.ant_glob('src/bindings/python/*.c'),
+                               target=APPNAME,
+                               gs_use_shlib=[APPNAME, public_include],
+                               package='libaardvark')
+
+
+def doc(ctx):
+    gs_doc.library(ctx,
+                   keyvalues={'gs_prod_name': 'lib'+APPNAME,
+                              'gs_prod_desc': 'Aardvark drivers',
+                              'gs_watermark_text': 'INTERNAL'})
+
+
+class Doc(BuildContext):
+    cmd = fun = 'doc'
+
+
+def gs_dist(ctx):
+    ctx.add_default_files(source_module=True)
+    ctx.add_files(ctx.path.ant_glob('lib/lib64/**'))
+    ctx.add_license_file("aardvark", "doc/aardvark_firmware_license.pdf")

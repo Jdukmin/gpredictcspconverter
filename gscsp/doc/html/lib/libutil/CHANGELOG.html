@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.1.3.11. Utility (libutil) &mdash; Product Interface Application 2.7.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Product Interface Application 2.7.1 documentation" href="../../index.html"/>
+        <link rel="up" title="5.1.3. Libraries" href="../../doc/appendix/changelogs_libraries.html"/>
+        <link rel="next" title="5.1.4. Tools" href="../../doc/appendix/changelogs_tools.html"/>
+        <link rel="prev" title="5.1.3.10. Remote GOSH (librgosh_client)" href="../librgosh_client/CHANGELOG.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../doc/index.html" class="icon icon-home"> Product Interface Application
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../doc/csp-client.html">1. Product Interface Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/product_interfaces.html">2. Product Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/libraries.html">3. Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/tools.html">4. Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../doc/appendix/appendix.html">5. Appendix</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../doc/appendix/changelogs.html">5.1. Software Changelogs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../CHANGELOG.html">5.1.1. Product Interface Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/appendix/changelogs_product_interfaces.html">5.1.2. Product Interfaces</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../doc/appendix/changelogs_libraries.html">5.1.3. Libraries</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../libaardvark/CHANGELOG.html">5.1.3.1. Aardvark Interface (libaardvark)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libgscsp/CHANGELOG.html">5.1.3.2. Gomspace CSP extension (libgscsp)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libfp_client/CHANGELOG.html">5.1.3.3. Flight Planner (libfp_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libftp_client/CHANGELOG.html">5.1.3.4. File Transfer Protocol (libftp_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libgosh_client/CHANGELOG.html">5.1.3.5. Gomspace Shell (libgosh_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libgssb_client/CHANGELOG.html">5.1.3.6. GomSpace Sensor Bus (libgssb_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libhk_client/CHANGELOG.html">5.1.3.7. Housekeeping System (libhk_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libnanopb/CHANGELOG.html">5.1.3.8. Nano Protobuf (libnanopb)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libparam_client/CHANGELOG.html">5.1.3.9. Parameter System (libparam_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../librgosh_client/CHANGELOG.html">5.1.3.10. Remote GOSH (librgosh_client)</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">5.1.3.11. Utility (libutil)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/appendix/changelogs_tools.html">5.1.4. Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../doc/appendix/api.html">5.2. API Documentation</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../doc/index.html">Product Interface Application</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../doc/index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../doc/appendix/appendix.html">5. Appendix</a> &raquo;</li>
+      
+          <li><a href="../../doc/appendix/changelogs.html">5.1. Software Changelogs</a> &raquo;</li>
+      
+          <li><a href="../../doc/appendix/changelogs_libraries.html">5.1.3. Libraries</a> &raquo;</li>
+      
+    <li>5.1.3.11. Utility (libutil)</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="utility-libutil">
+<h1>5.1.3.11. Utility (libutil)<a class="headerlink" href="#utility-libutil" title="Permalink to this headline">¶</a></h1>
+<p><strong>3.10.2 (2020-03-18)</strong></p>
+<ul class="simple">
+<li>Improvement: Log: Do not call gs_clock_get_time() from ISR context.</li>
+</ul>
+<p><strong>3.10.1 (2020-01-23)</strong></p>
+<ul class="simple">
+<li>Feature: User space interrupt support for linux sysfs gpio driver.</li>
+<li>Feature: Linux - support for native I2C and SPI driver.</li>
+<li>Improvement: Linux - improved gs_time_sleep_ns() by compensating for signals.</li>
+</ul>
+<p><strong>3.9.3 (2019-10-16)</strong></p>
+<ul class="simple">
+<li>Bug: Fixed check in gs_vmem_cpy() for last entry, checked size - not size (as other VMEM functions).</li>
+<li>Feature: Made gs_lock API public (moved header file to public scope).</li>
+<li>Feature: Added vmem test interface used for production checkout.</li>
+<li>Improvement: log appender hist: added pattern match support.</li>
+<li>Bug: gs_string_match() fixed wildcard bug, preventing a valid match.</li>
+<li>Improvement: Disable stdio buffering from within console thread, so it works with newlib reentrant.</li>
+<li>Feature: Added prototype for gs_stdio_put_direct() and linux implementation.</li>
+</ul>
+<p><strong>3.9.2 (2019-07-03)</strong></p>
+<ul class="simple">
+<li>Feature: Added gs_time_to_string() API.</li>
+</ul>
+<p><strong>3.9.1 (2019-05-16)</strong></p>
+<ul class="simple">
+<li>Improvement: Changed strings in command context to const (prevent modification).</li>
+</ul>
+<p><strong>3.8.1 (2019-04-08)</strong></p>
+<ul class="simple">
+<li>Feature: Added GS_PATH_MAX, GS_PLATFORM_64, gs_snprintf().</li>
+<li>Improvement: Changed logs from ISR to print to stderr, so these can be handled differently.</li>
+<li>Improvement: Aligned help text for log groups and appenders.</li>
+<li>Breaking: Added return value to log appender interface.</li>
+<li>Feature: Added log appender ‘clear’ command.</li>
+<li>Breaking: Extended vmem interface with a check() function. Changed “size” formatting in vmem list.</li>
+<li>Feature: Added “vmem info” command.</li>
+</ul>
+<p><strong>3.7.2 (2019-03-10)</strong></p>
+<ul class="simple">
+<li>Feature: Added support for setting log levels on command line (linux only).</li>
+</ul>
+<p><strong>3.7.1 (2019-02-26)</strong></p>
+<ul class="simple">
+<li>Breaking: gs_command_init(): removed automatic registration of vmem commands, use gs_vmem_register_commands() to register commands.</li>
+<li>Breaking: fixed bugs in command_gen.py (Command generator JSON -&gt; c/h). The register function will always uses the JSON filename.</li>
+</ul>
+<p><strong>3.6.1 (2019-01-30)</strong></p>
+<ul class="simple">
+<li>Improvement: Added support for stopping console thread.</li>
+<li>Improvement: Enabled hexdump() to dump memory from address 0.</li>
+<li>Breaking: Removed attribute “log_groups” from log group definition, requiring log gruops to be registered to show up in lists.</li>
+<li>Improvement: Updated API documentation.</li>
+</ul>
+<p><strong>3.5.2 (2018-12-19)</strong></p>
+<ul class="simple">
+<li>Improvement: Updated documentation.</li>
+</ul>
+<p><strong>3.5.1 (2018-11-21)</strong></p>
+<ul class="simple">
+<li>Breaking: Re-factored the log framework. Log statements are not affected. Only log configuration/setup.</li>
+<li>Breaking: Removed gs_time_rel_s() and gs_time_rel_s_isr().</li>
+<li>Breaking: Linux, gs_command_register() must always be called to register commands.</li>
+<li>Improvement: Added gs_console_start(), which simplifies console initialization.</li>
+</ul>
+<p><strong>3.4.1 (2018-09-20)</strong></p>
+<ul class="simple">
+<li>Feature: Added gs_thread_create_with_stack, so that stack buffer can be manually allocated.</li>
+<li>Feature: Added gs_string_endswith function.</li>
+<li>Improvement: Added logging functionality from interrupt (ISR) context , e.g. gs_log_isr().</li>
+<li>Feature: Added gs_crc8 API.</li>
+<li>Improvement: Increased accepted number commands arguments from 25 to 30.</li>
+<li>Feature: Added gs_thread_join() - primarily for testing.</li>
+<li>Feature: Added support for logging of gosh commands. Default logger available.</li>
+</ul>
+<p><strong>3.3.2 (2018-08-13)</strong></p>
+<ul class="simple">
+<li>Feature: Added unistd::gs_getcwd().</li>
+<li>Feature: GOSH/command added support for specifying mandatory and optional arguments.</li>
+<li>Feature: GOSH/command added support for other IO streams than stdio.</li>
+<li>Feature: Added simple log file store.</li>
+<li>Breaking: GOSH/command, changed gs_command_context_t, gs_command_t and ‘complete’ callback.</li>
+<li>Breaking: Removed driver_debug API - use Log API instead.</li>
+</ul>
+<p><strong>3.2.1 (2018-05-30)</strong></p>
+<ul class="simple">
+<li>Breaking: Changed GPIO ISR callback to make use of context switch.</li>
+<li>Feature: Added ‘no check’ versions of GPIO get/set for better perfomance.</li>
+<li>Feature: Added microsecond delays since provided timestamp</li>
+<li>Feature: Added bytebuffer API.</li>
+</ul>
+<p><strong>3.1.2 (2018-04-17)</strong></p>
+<ul class="simple">
+<li>Breaking: Changed I2C interface for getting buffers, gs_i2c_slave_get_rx_buf_t / gs_i2c_slave_set_get_rx_buf().</li>
+<li>Feature: Added gs_fletcher16() functions for handling streaming data.</li>
+<li>Feature: re-added deprecated color_printf and GOSH APIs in order to support “old” clients.</li>
+</ul>
+<p><strong>3.0.1 (2018-03-14)</strong></p>
+<ul class="simple">
+<li>Breaking: Replaced LZO with miniz (Zip)</li>
+<li>Feature: GOSH (for local commands) moved to libutil</li>
+<li>Feature: Generic GPIO prototype and x86_64 implementation</li>
+<li>Feature: Additional string functions</li>
+</ul>
+<p><strong>3.0.0 (2017-12-04)</strong></p>
+<ul class="simple">
+<li>Feature: Software watchdog</li>
+<li>Improvement: Updated to LZO 2.10</li>
+<li>Feature: Additional string functions</li>
+<li>Feature: Additional date/time functions</li>
+<li>Feature: Prototypes for stdio</li>
+</ul>
+<p><strong>2.1.0 (2017-07-28)</strong></p>
+<ul class="simple">
+<li>Improvement: Functionality for 8-bit architectures</li>
+</ul>
+<p><strong>2.0.0 (2017-06-23)</strong></p>
+<ul class="simple">
+<li>Improvement: Use gsbuildtools.</li>
+<li>Feature: Added cross-platform API’s for various IO functionality, e.g. SPI, I2C, CAN.</li>
+</ul>
+<p><strong>1.0 (2015-05-08)</strong></p>
+<ul class="simple">
+<li>Feature: Allow time to be set on linux</li>
+<li>Feature: Support for liblog</li>
+<li>Feature: LZO re-added and tested on linux</li>
+<li>Feature: VMEM system</li>
+<li>Feature: Added documentation folder in sphinx format</li>
+<li>Feature: High resolution tick timer system</li>
+</ul>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../doc/appendix/changelogs_tools.html" class="btn btn-neutral float-right" title="5.1.4. Tools" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../librgosh_client/CHANGELOG.html" class="btn btn-neutral" title="5.1.3.10. Remote GOSH (librgosh_client)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 GomSpace A/S..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.7.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

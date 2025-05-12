@@ -1,0 +1,373 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.11.2. Software concepts and terminology &mdash; Product Interface Application 2.7.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Product Interface Application 2.7.1 documentation" href="../../../index.html"/>
+        <link rel="up" title="3.11. Utility (libutil)" href="libutil.html"/>
+        <link rel="next" title="3.11.3. Logging framework" href="logging.html"/>
+        <link rel="prev" title="3.11.1. Introduction" href="introduction.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../doc/index.html" class="icon icon-home"> Product Interface Application
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/csp-client.html">1. Product Interface Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/product_interfaces.html">2. Product Interfaces</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../doc/libraries.html">3. Libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../libaardvark/doc/libaardvark.html">3.1. Aardvark (libaardvark)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libgscsp/doc/libgscsp.html">3.2. GomSpace CSP (libgscsp)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libfp_client/doc/libfp_client.html">3.3. Flight Planner (libfp_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libftp_client/doc/libftp_client.html">3.4. FTP (libftp_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libgosh_client/doc/libgosh_client.html">3.5. GOSH (libgosh_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libgssb_client/doc/libgssb_client.html">3.6. GomSpace Sensor Bus (libgssb_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libhk_client/doc/libhk_client.html">3.7. Housekeeping (libhk_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libnanopb/doc/libnanopb.html">3.8. Nano Protobuf (libnanopb)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libparam_client/doc/libparam_client.html">3.9. Parameter System (libparam_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../librgosh_client/doc/librgosh_client.html">3.10. Remote GOSH (librgosh_client)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="libutil.html">3.11. Utility (libutil)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">3.11.1. Introduction</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.11.2. Software concepts and terminology</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#swstack">3.11.2.1. Software Stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#client-server">3.11.2.2. Client / Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#directory-structure">3.11.2.3. Directory Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html">3.11.3. Logging framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="watchdog.html">3.11.4. Software Watchdog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command.html">3.11.5. Command (GOSH)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="commands.html">3.11.6. Commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/tools.html">4. Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/appendix/appendix.html">5. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../doc/index.html">Product Interface Application</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../doc/index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../doc/libraries.html">3. Libraries</a> &raquo;</li>
+      
+          <li><a href="libutil.html">3.11. Utility (libutil)</a> &raquo;</li>
+      
+    <li>3.11.2. Software concepts and terminology</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="software-concepts-and-terminology">
+<span id="libutil-software"></span><h1>3.11.2. Software concepts and terminology<a class="headerlink" href="#software-concepts-and-terminology" title="Permalink to this headline">¶</a></h1>
+<p>This section provides a general introduction to common concepts and terminology used in documentation and software nodules. This will make it easier to understand and navigate the software SDK’s.</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#libutil-software-stack"><span class="std std-ref">Software Stack</span></a></li>
+<li><a class="reference internal" href="#libutil-client-server"><span class="std std-ref">Client / Server</span></a></li>
+<li><a class="reference internal" href="#libutil-software-directory"><span class="std std-ref">Directory Structure</span></a></li>
+</ul>
+</div></blockquote>
+<div class="section" id="swstack">
+<span id="libutil-software-stack"></span><h2>3.11.2.1. Software Stack<a class="headerlink" href="#swstack" title="Permalink to this headline">¶</a></h2>
+<p>The Software Stack consists of several modules divided into four layers. The four layers and a selection of the modules
+are shown on the image below and described in the following sections.</p>
+<div class="figure">
+<img alt="../../../_images/software_stack.png" src="../../../_images/software_stack.png" />
+</div>
+<div class="section" id="cpl">
+<h3>3.11.2.1.1. Cross Platform Layer<a class="headerlink" href="#cpl" title="Permalink to this headline">¶</a></h3>
+<p>The Cross Platform Layer contains primarily the Utility library, which is used by nearly all products and libraries. The Utility library provides cross-platform API’s for
+common functionality, for use in both embedded systems and standard PC’s running Linux. For some API’s, the Utility library doesn’t contain the actual
+implementation, but only the prototypes. The implementation for specific platforms can be found on higher layers, e.g. Embed library, Aardvark library.</p>
+<p>The primary purpose of using cross-platform code, is to re-use/run the same code on multiple platforms - and especially support (unit) testing of embedded code, on a more standard PC/Linux platform.</p>
+</div>
+<div class="section" id="psl">
+<h3>3.11.2.1.2. Platform Specific Layer<a class="headerlink" href="#psl" title="Permalink to this headline">¶</a></h3>
+<p>The Platform Specific Layer defines APIs that are not cross platform. All APIs that can be defined across multiple embedded platforms are
+normally defined in the Embed library, which also holds the implementation of some of the API’s defined in the Utility library.</p>
+<p>The vendor specific libraries ASF and STM32 are almost <cite>as is</cite>, with minimum GomSpace modifications/fixes. All GomSpace modifactions are
+mainly done in the Embed library. Both libraries comes with a FreeRTOS version.</p>
+<p>The Platform Specific Layer also contain specific Linux implementations, e.g. Aardvark library which provices driver support for SPI and I<sup>2</sup>C - providing the same API, used on an embedded platform. This allow tests of drivers for components with a SPI or I<sup>2</sup>C interface on Linux.</p>
+</div>
+<div class="section" id="libl">
+<h3>3.11.2.1.3. Libraries Layer<a class="headerlink" href="#libl" title="Permalink to this headline">¶</a></h3>
+<p>The Libraries Layer contains services and high-level components. These include Parameter System, Housekeeping, CSP, etc.</p>
+</div>
+<div class="section" id="prodl">
+<h3>3.11.2.1.4. Product Layer<a class="headerlink" href="#prodl" title="Permalink to this headline">¶</a></h3>
+<p>The top layer is the Product Layer. The modules in the Product Layer define and implement functionality that is targeted at a
+specific product. This could be an application running on Linux (e.g. csp-client) or the software running on an A3200 platform (e.g. A3200 ADCS / SDK).</p>
+</div>
+</div>
+<div class="section" id="client-server">
+<span id="libutil-client-server"></span><h2>3.11.2.2. Client / Server<a class="headerlink" href="#client-server" title="Permalink to this headline">¶</a></h2>
+<p>Some components (e.g. <cite>libftp</cite>) are split into 2 modules: a <cite>server</cite> (or <cite>host</cite>) and a <cite>client</cite> module. The <cite>server</cite> module provides the backend
+functionality, e.g. FTP server. The <cite>client</cite> module typically provides an API and/or a set of commands for interfacing with the <cite>server</cite>.</p>
+<p>The name of the <cite>client</cite> module is normamly the <cite>server</cite> name, suffixed with <cite>_client</cite>.</p>
+</div>
+<div class="section" id="directory-structure">
+<span id="libutil-software-directory"></span><h2>3.11.2.3. Directory Structure<a class="headerlink" href="#directory-structure" title="Permalink to this headline">¶</a></h2>
+<p>Modules are structured in the same way, which makes it easy to find the relevant files.</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Folder</strong></th>
+<th class="head"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">include</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Public header files.</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">include/gs/&lt;module&gt;</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">To avoid clashes with other modules and 3rd part libraries, all files are placed in scoped sub-folders.</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">include/gs/&lt;module&gt;/internal</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">The <cite>internal</cite> folder is reserved for shared files between <cite>server</cite> &amp; <cite>client</cite>, and only present in the <cite>client</cite>. These files should never be included.</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">conf</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Configuration, e.g. header files, linker scripts.</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">src</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Source code, the actual implementation. These files are considered private for the module and typically organized to reflect the internal sub-modules. NOTE this folder is only present, if the module is shipped with source code.</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">doc</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Documentation, PDF and/or HTML. This folder is normally only present in SDK’s.</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">lib</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">If the module is a <cite>server</cite> / <cite>client</cite> module, this folder will contain the <cite>client</cite>. The structure of the <cite>client</cite> follows the same standard structure.</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">obj</div>
+</div>
+</td>
+<td><div class="first last line-block">
+<div class="line">Pre-compiled object files. NOTE this folder is only present, if the module is shipped as <cite>binary</cite> (no source code).</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="logging.html" class="btn btn-neutral float-right" title="3.11.3. Logging framework" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="3.11.1. Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 GomSpace A/S..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.7.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

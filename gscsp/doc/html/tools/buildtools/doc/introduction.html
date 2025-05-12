@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.1.1. Introduction &mdash; Product Interface Application 2.7.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Product Interface Application 2.7.1 documentation" href="../../../index.html"/>
+        <link rel="up" title="4.1. BuildTools" href="buildtools.html"/>
+        <link rel="next" title="4.1.4. Docker functionality" href="docker.html"/>
+        <link rel="prev" title="4.1. BuildTools" href="buildtools.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../doc/index.html" class="icon icon-home"> Product Interface Application
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/csp-client.html">1. Product Interface Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/product_interfaces.html">2. Product Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/libraries.html">3. Libraries</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../doc/tools.html">4. Tools</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="buildtools.html">4.1. BuildTools</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">4.1.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-and-building-a-project">4.1.2. Setting up and building a project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-gsbuildtools-in-scripts">4.1.3. Using BuildTools in scripts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/appendix/appendix.html">5. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../doc/index.html">Product Interface Application</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../doc/index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../doc/tools.html">4. Tools</a> &raquo;</li>
+      
+          <li><a href="buildtools.html">4.1. BuildTools</a> &raquo;</li>
+      
+    <li>4.1.1. Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<span id="gsbuildtools-chapter-ref"></span><h1>4.1.1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>BuildTools offers a range of various tools and scripts to ease the building of projects and libraries from
+GomSpace.</p>
+<p>Software projects are build using Waf (<a class="reference external" href="https://waf.io/">https://waf.io/</a>), which is a Python based build system. GomSpace has added some
+extensions in form of scripts and helper functions. These extensions can clearly be identified by the <code class="docutils literal"><span class="pre">gs</span></code> prefix.</p>
+</div>
+<div class="section" id="setting-up-and-building-a-project">
+<h1>4.1.2. Setting up and building a project<a class="headerlink" href="#setting-up-and-building-a-project" title="Permalink to this headline">¶</a></h1>
+<p>To setup a project to use BuildTools the following command must be run in the root directory of the project.</p>
+<div class="highlight-shell"><div class="highlight"><pre>user@host$ ./tools/buildtools/gsbuildtools_bootstrap.py
+</pre></div>
+</div>
+<p>This will create symlinks for the Waf binary throughout the project. If new modules are added after the project has been
+bootstrapped, this command must be run again.</p>
+<p>Once the project has been bootstrapped, the project can be build by invoking the Waf program.</p>
+<div class="highlight-shell"><div class="highlight"><pre>user@host$ ./waf distclean configure build
+</pre></div>
+</div>
+<p>The <cite>distclean</cite> option will delete the <cite>build</cite> folder - removing all build artifacts.</p>
+<p>The <cite>configure</cite> option instructs Waf to run all the <cite>configure</cite> methods in all wscript’s (recursively). The <cite>configure</cite> step
+is typically used for configurering the build, checking if the necessary tools/compilers are available, etc.</p>
+<p>The <cite>build</cite> option performs the actual build. Waf hashes all source files, so it only builds what has changed since last build. In order
+to build changes, simply run the Waf program (wihtout any options):</p>
+<div class="highlight-shell"><div class="highlight"><pre>user@host$ ./waf
+</pre></div>
+</div>
+<p>For further details on Waf, please see the officiel documentation on <a class="reference external" href="https://waf.io/">https://waf.io/</a>. <cite>The Waf Book</cite> (<a class="reference external" href="https://waf.io/book/">https://waf.io/book/</a>) is a good starting point for first time users.</p>
+</div>
+<div class="section" id="using-gsbuildtools-in-scripts">
+<h1>4.1.3. Using BuildTools in scripts<a class="headerlink" href="#using-gsbuildtools-in-scripts" title="Permalink to this headline">¶</a></h1>
+<p>BuildTools can also be used in a script to run a series of Waf commands. This can be achieved by creating a Python
+script in the root folder of the project.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<span class="kn">import</span> <span class="nn">gsbuildtools</span>
+
+<span class="kn">from</span> <span class="nn">gs.buildtools</span> <span class="kn">import</span> <span class="n">util</span>
+
+<span class="n">options1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--my-opt1&#39;</span><span class="p">]</span>
+<span class="n">options2</span> <span class="o">=</span> <span class="n">options1</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;--my-opt2&#39;</span><span class="p">]</span>
+<span class="n">options3</span> <span class="o">=</span> <span class="n">options2</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;--my-opt3&#39;</span><span class="p">]</span>
+
+<span class="n">util</span><span class="o">.</span><span class="n">waf_command</span><span class="p">(</span><span class="n">options1</span><span class="p">)</span>
+<span class="n">util</span><span class="o">.</span><span class="n">waf_command</span><span class="p">(</span><span class="n">options2</span><span class="p">)</span>
+<span class="n">util</span><span class="o">.</span><span class="n">waf_command</span><span class="p">(</span><span class="n">options3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This script will run waf three times with three different options configured.</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="docker.html" class="btn btn-neutral float-right" title="4.1.4. Docker functionality" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="buildtools.html" class="btn btn-neutral" title="4.1. BuildTools" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 GomSpace A/S..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.7.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

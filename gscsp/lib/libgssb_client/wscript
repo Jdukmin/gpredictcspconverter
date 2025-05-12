@@ -1,0 +1,63 @@
+#!/usr/bin/env python
+# encoding: utf-8
+# Copyright (c) 2013-2018 GomSpace A/S. All rights reserved.
+
+import gs_gcc
+import gs_dist
+
+APPNAME = 'gssb_client'
+
+
+def options(ctx):
+    ctx.load('gs_gcc')
+    gs_gcc.gs_recurse(ctx)
+
+    gr = ctx.add_option_group('libgssb_client options')
+    gr.add_option('--gssb-twi-handler', metavar='HANDLE', default=1, type=int, help='TWI handler for gssb bus')
+    gr.add_option('--gssb-enable-istage', action='store_true',
+                  help='Enable local cmds and handling of rgssb cmds for interstage')
+    gr.add_option('--gssb-enable-msp', action='store_true',
+                  help='Enable local cmds and handling of rgssb cmds for msp')
+    gr.add_option('--gssb-enable-sunsensor', action='store_true', default='True',
+                  help='Enable local cmds and handling of rgssb cmds for sunsensor')
+    gr.add_option('--gssb-enable-ar6', action='store_true',
+                  help='Enable local cmds and handling of rgssb cmds for ar6')
+    gr.add_option('--gssb-enable-ant6', action='store_true',
+                  help='Enable local cmds and handling of rgssb cmds for ant6')
+    gr.add_option('--gssb-enable-i4', action='store_true',
+                  help='Enable local cmds and handling of rgssb cmds for i4')
+
+
+def configure(ctx):
+    ctx.load('gs_gcc')
+
+    ctx.env.append_unique('FILES_GSSB_CLIENT', ['src/**/*.c'])
+
+    ctx.define('GSSB_TWI_HANDLER', ctx.options.gssb_twi_handler)
+    ctx.define_cond('GS_ISTAGE_ENABLED', ctx.options.gssb_enable_istage)
+    ctx.define_cond('GS_MSP_ENABLED', ctx.options.gssb_enable_msp)
+    ctx.define_cond('GS_SUNSENSOR_ENABLED', ctx.options.gssb_enable_sunsensor)
+    ctx.define_cond('GS_AR6_ENABLED', ctx.options.gssb_enable_ar6)
+    ctx.define_cond('GS_ANT6_ENABLED', ctx.options.gssb_enable_ant6)
+    ctx.define_cond('GS_I4_ENABLED', ctx.options.gssb_enable_i4)
+
+    ctx.write_config_header('include/conf_gssb.h')
+
+    ctx.gs_add_doxygen(exclude=['*/include/gs/gssb/internal/*'])
+
+    gs_gcc.gs_recurse(ctx)
+
+
+def build(ctx):
+    gs_gcc.gs_recurse(ctx)
+
+    public_include = ctx.gs_include(includes=['include'], name=APPNAME)
+
+    if ctx.env.GS_ARCH not in ['avr8']:
+        ctx.gs_objects(source=ctx.path.ant_glob(ctx.env.FILES_GSSB_CLIENT),
+                       target=APPNAME,
+                       use=['gscsp', 'util', public_include])
+
+
+def gs_dist(ctx):
+    ctx.add_default_files(source_module=True)

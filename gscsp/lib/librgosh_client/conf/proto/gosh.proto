@@ -1,0 +1,70 @@
+syntax = "proto2";
+
+
+message TimeStamp {
+    required int64 seconds = 1;
+    required int32 nanos = 2;
+}
+
+message RunCommand {
+    required string command = 1;
+    optional TimeStamp exec_time = 2;
+}
+
+message RunScriptCommand {
+    optional string script = 1;
+    optional uint32 stack_size = 2;
+    optional uint32 priority = 3;
+    optional TimeStamp exec_time = 4;
+}
+
+message ListJobsCommand {
+
+}
+ 
+message StopCommand {
+    optional TimeStamp exec_time = 1;
+}
+
+message ShellCommand {
+    optional uint32 stack_size = 1;
+    optional uint32 priority = 2;
+}
+
+message KeepAlive {
+    optional TimeStamp time = 1;
+}
+
+
+message ResultTuple {
+	optional string group = 1;
+    required string key = 2;
+    required string value = 3;
+}
+
+message CommandResponse {
+    repeated ResultTuple results = 1;
+    required int32 return_code = 2;
+    required bool completion_flag = 3;
+    optional string std_out = 10;
+}
+
+message GoshRequest {
+    required uint32 id = 1;
+    oneof command {
+        RunCommand run = 10;
+        RunScriptCommand runscript = 11;
+        ListJobsCommand listjobs = 12;
+        StopCommand stop = 13;
+        ShellCommand shell = 14;
+        KeepAlive keepalive = 15;
+    }
+}
+
+message GoshResponse {
+    required uint32 id = 1;
+    oneof response {
+        CommandResponse command = 10;
+        KeepAlive keepalive = 20;
+    }
+}

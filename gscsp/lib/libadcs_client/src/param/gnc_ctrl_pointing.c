@@ -1,0 +1,61 @@
+/* Copyright (c) 2013 GomSpace A/S. All rights reserved. (AUTO GENERATED) */
+
+#include <gs/adcs/param/host/gnc_ctrl_pointing.h>
+#include <gs/util/pgm.h>
+
+const gs_param_table_row_t gs_adcs_gnc_ctrl_pointing_table[] = {
+    {.name = "mw_smc",        .addr = GS_ADCS_GNC_CTRL_POINTING_MW_SMC(0),               .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  3, .flags = 0},
+    {.name = "mw_gain",       .addr = GS_ADCS_GNC_CTRL_POINTING_MW_GAIN(0),              .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  3, .flags = 0},
+    {.name = "mw_dumpgain",   .addr = GS_ADCS_GNC_CTRL_POINTING_MW_DUMPGAIN,             .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  1, .flags = 0},
+    {.name = "mw_mw2trq",     .addr = GS_ADCS_GNC_CTRL_POINTING_MW_MW2TRQ,               .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  1, .flags = 0},
+    {.name = "mw_mannull",    .addr = GS_ADCS_GNC_CTRL_POINTING_MW_MANNULL(0),           .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  4, .flags = 0},
+    {.name = "mw_mangain",    .addr = GS_ADCS_GNC_CTRL_POINTING_MW_MANGAIN,              .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  1, .flags = 0},
+    {.name = "mw_manoffset",  .addr = GS_ADCS_GNC_CTRL_POINTING_MW_MANOFFSET,            .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  1, .flags = 0},
+    {.name = "euler_offset",  .addr = GS_ADCS_GNC_CTRL_POINTING_EULER_OFFSET(0),         .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  3, .flags = 0},
+    {.name = "rate_offset",   .addr = GS_ADCS_GNC_CTRL_POINTING_RATE_OFFSET(0),          .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  3, .flags = 0},
+    {.name = "ref_momentum",  .addr = GS_ADCS_GNC_CTRL_POINTING_REF_MOMENTUM(0),         .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  3, .flags = 0},
+    {.name = "en_mwdump",     .addr = GS_ADCS_GNC_CTRL_POINTING_EN_MWDUMP,               .type = GS_PARAM_BOOL,    .size =   1, .array_size =  1, .flags = 0},
+    {.name = "en_mwman",      .addr = GS_ADCS_GNC_CTRL_POINTING_EN_MWMAN,                .type = GS_PARAM_BOOL,    .size =   1, .array_size =  1, .flags = 0},
+    {.name = "en_bbq",        .addr = GS_ADCS_GNC_CTRL_POINTING_EN_BBQ(0),               .type = GS_PARAM_UINT8,   .size =   1, .array_size =  2, .flags = 0},
+    {.name = "en_gso",        .addr = GS_ADCS_GNC_CTRL_POINTING_EN_GSO(0),               .type = GS_PARAM_UINT8,   .size =   1, .array_size =  3, .flags = 0},
+    {.name = "en_gstrack",    .addr = GS_ADCS_GNC_CTRL_POINTING_EN_GSTRACK(0),           .type = GS_PARAM_UINT8,   .size =   1, .array_size =  2, .flags = 0},
+    {.name = "en_sunpoint",   .addr = GS_ADCS_GNC_CTRL_POINTING_EN_SUNPOINT,             .type = GS_PARAM_BOOL,    .size =   1, .array_size =  1, .flags = 0},
+    {.name = "nadir",         .addr = GS_ADCS_GNC_CTRL_POINTING_NADIR(0),                .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  3, .flags = 0},
+    {.name = "ram",           .addr = GS_ADCS_GNC_CTRL_POINTING_RAM(0),                  .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  3, .flags = 0},
+    {.name = "mindrag",       .addr = GS_ADCS_GNC_CTRL_POINTING_MINDRAG(0),              .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  3, .flags = 0},
+    {.name = "maxdrag",       .addr = GS_ADCS_GNC_CTRL_POINTING_MAXDRAG(0),              .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  3, .flags = 0},
+    {.name = "gs_list",       .addr = GS_ADCS_GNC_CTRL_POINTING_GS_LIST(0),              .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  9, .flags = 0},
+    {.name = "gs_offset",     .addr = GS_ADCS_GNC_CTRL_POINTING_GS_OFFSET(0),            .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  9, .flags = 0},
+    {.name = "gso_list",      .addr = GS_ADCS_GNC_CTRL_POINTING_GSO_LIST(0),             .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  9, .flags = 0},
+    {.name = "gso_ant",       .addr = GS_ADCS_GNC_CTRL_POINTING_GSO_ANT(0),              .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  9, .flags = 0},
+    {.name = "target0",       .addr = GS_ADCS_GNC_CTRL_POINTING_TARGET0(0),              .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  3, .flags = 0},
+    {.name = "target1",       .addr = GS_ADCS_GNC_CTRL_POINTING_TARGET1(0),              .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  3, .flags = 0},
+    {.name = "target2",       .addr = GS_ADCS_GNC_CTRL_POINTING_TARGET2(0),              .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  3, .flags = 0},
+    {.name = "custom0",       .addr = GS_ADCS_GNC_CTRL_POINTING_CUSTOM0(0),              .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  3, .flags = 0},
+    {.name = "custom1",       .addr = GS_ADCS_GNC_CTRL_POINTING_CUSTOM1(0),              .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  3, .flags = 0},
+    {.name = "custom2",       .addr = GS_ADCS_GNC_CTRL_POINTING_CUSTOM2(0),              .type = GS_PARAM_FLOAT,   .size =   4, .array_size =  3, .flags = 0},
+};
+
+const gs_adcs_gnc_ctrl_pointing_memory_t gs_adcs_gnc_ctrl_pointing_default_values GS_PGM_OBJECT = {
+    .mw_smc = {0.2, -0.0001, 0.001},
+    .mw_gain = {-0.0005, 0.0, 0.0},
+    .mw_dumpgain = -0.01,
+    .mw_mw2trq = 1.0,
+    .mw_mannull = {0.0, 0.0, 0.0, 0.0},
+    .mw_mangain = 0.005,
+    .mw_manoffset = 0.005,
+    .euler_offset = {0.0, 0.0, 0.0},
+    .rate_offset = {0.0, 0.0, 0.0},
+    .ref_momentum = {0.0, 0.0, 0.0},
+    .en_mwdump = true,
+    .en_mwman = false,
+    .en_bbq = {0, 0},
+    .en_gso = {0, 0, 0},
+    .en_gstrack = {0, 0},
+    .en_sunpoint = false,
+    .nadir = {0.0, 0.0, 0.0},
+    .ram = {0.0, 0.0, 0.0},
+    .mindrag = {0.0, 0.0, 0.0},
+    .maxdrag = {0.0, 0.0, 0.0},
+};
+

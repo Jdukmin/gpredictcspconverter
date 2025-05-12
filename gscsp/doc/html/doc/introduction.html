@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.1. Introduction &mdash; Product Interface Application 2.7.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Product Interface Application 2.7.1 documentation" href="../index.html"/>
+        <link rel="up" title="1. Product Interface Application" href="csp-client.html"/>
+        <link rel="next" title="2. Product Interfaces" href="product_interfaces.html"/>
+        <link rel="prev" title="1. Product Interface Application" href="csp-client.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Product Interface Application
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="csp-client.html">1. Product Interface Application</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">1.2. Getting started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">1.2.1. Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unpacking-pia">1.2.2. Unpacking Product Interface Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-pia">1.2.3. Building Product Interface Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-pia">1.2.4. Running Product Interface Application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#can">1.3. CAN</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#can-utils">1.3.1. can-utils</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#i2c-spi">1.4. I2C/SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-bindings">1.5. Python bindings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="product_interfaces.html">2. Product Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libraries.html">3. Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">4. Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/appendix.html">5. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Product Interface Application</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="csp-client.html">1. Product Interface Application</a> &raquo;</li>
+      
+    <li>1.1. Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>1.1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The Product Interface Application includes interfaces for most standard GomSpace products, e.g. NanoCom AX100, NanoCam C1U.</p>
+<p>It comes with full source code for all clients and a number of support libraries.</p>
+<p>It is shipped as a single archive, which includes all the source code, build scripts, documentation (this document),
+etc. The archive is named <cite>gs-sw-nanosoft-product-interface-application-&lt;version&gt;.tar.gz</cite>,
+hereinafter referred to as <cite>&lt;archive.tar.gz&gt;</cite>.</p>
+<p>Building Product Interface Application produces a single executable file named <cite>csp-client</cite>.</p>
+<p>It can also be used as an example of how to develop GomSpace compatible applications for Linux.</p>
+<p>Included product interfaces can be found in <a class="reference internal" href="product_interfaces.html#product-interfaces"><span class="std std-numref">Section 2</span></a>.</p>
+<p>SPI and I<sup>2</sup>C communication is supported using the <cite>Aardvark I2C/SPI Host Adapter</cite>, see <a class="reference internal" href="../lib/libaardvark/doc/libaardvark.html#libaardvark"><span class="std std-numref">Section 3.1</span></a>.</p>
+</div>
+<div class="section" id="getting-started">
+<h1>1.2. Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prerequisites">
+<h2>1.2.1. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>The software has been built and verified on Ubuntu 18.04.4 LTS (<a class="reference external" href="http://www.ubuntu.com">http://www.ubuntu.com</a>), with following tools:</p>
+<ul class="simple">
+<li>Python 2.7.17</li>
+</ul>
+<p>Install Ubuntu prerequisites:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ sudo apt install build-essential libsocketcan-dev libzmq3-dev
+</pre></div>
+</div>
+</div>
+<div class="section" id="unpacking-pia">
+<h2>1.2.2. Unpacking Product Interface Application<a class="headerlink" href="#unpacking-pia" title="Permalink to this headline">¶</a></h2>
+<p>Use following steps to extract all files from the archive into a working directory on your Linux system.</p>
+<ol class="arabic">
+<li><p class="first">Create a workspace folder, e.g. ~/workspace. All files will be extracted to a sub-folder within the workspace folder:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ mkdir ~/workspace
+</pre></div>
+</div>
+</li>
+<li><p class="first">Copy the archive to the workspace folder:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ cp &lt;archive.tar.gz&gt; ~/workspace
+</pre></div>
+</div>
+</li>
+<li><p class="first">Change directory to the workspace folder:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ cd ~/workspace
+</pre></div>
+</div>
+</li>
+<li><p class="first">Unpack the archive:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ tar xvf &lt;archive.tar.gz&gt;
+</pre></div>
+</div>
+</li>
+</ol>
+<p>You now have the source code unpacked in: <cite>~/workspace/gs-sw-nanosoft-product-interface-application-&lt;version&gt;</cite>.</p>
+</div>
+<div class="section" id="building-pia">
+<h2>1.2.3. Building Product Interface Application<a class="headerlink" href="#building-pia" title="Permalink to this headline">¶</a></h2>
+<p>Use the following steps to build the Product Interface Application.</p>
+<p>Building the first time:</p>
+<ol class="arabic">
+<li><p class="first">Change directory to the Product Interface Application folder:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ cd ~/workspace/gs-sw-nanosoft-product-interface-application-&lt;version&gt;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Bootstrap buildtools:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ ./tools/buildtools/gsbuildtools_bootstrap.py
+</pre></div>
+</div>
+</li>
+<li><p class="first">Build using Waf:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ ./waf distclean configure build
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Subsequent building:</p>
+<ol class="arabic">
+<li><p class="first">Change directory to the Product Interface Application folder:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ cd ~/workspace/gs-sw-nanosoft-product-interface-application-&lt;version&gt;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Build using Waf:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ ./waf
+</pre></div>
+</div>
+</li>
+</ol>
+<p>More details about using BuildTools can be found in <a class="reference internal" href="../tools/buildtools/doc/buildtools.html#gsbuildtools"><span class="std std-numref">Section 4.1</span></a>.</p>
+</div>
+<div class="section" id="running-pia">
+<h2>1.2.4. Running Product Interface Application<a class="headerlink" href="#running-pia" title="Permalink to this headline">¶</a></h2>
+<p>The Product Interface Application supports a number of command line arguments:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ ./build/csp-client -h
+Usage: csp-client [OPTION...]
+Product Interface Application
+
+ Aardvard I2C/SPI dongle
+      --aardvark-devices     Show all devices
+  -I, --aardvark-i2c[=DEVICE]   Add I2C interface
+                             DEVICE=0,speed=100000,address=1,device=255
+  -S, --aardvark-spi[=DEVICE]   Add SPI interface
+                             DEVICE=0,speed=400000,slave=255
+
+ CSP
+  -a, --csp-address=ADDR     Set address, default: 8
+  -c, --csp-can[=DEVICE]     Add CAN interface
+                             DEVICE=can0
+  -i, --csp-i2c[=DEVICE]     Add I2C interface
+                             DEVICE=0,speed=100000,address=1,device=255
+  -k, --csp-kiss[=DEVICE]    Add KISS over UART interface
+                             DEVICE=/dev/ttyUSB0,if=KISS,speed=500000
+  -R, --csp-rtable=RTABLE    Set routing table
+                             RTABLE=&lt;address&gt;/&lt;mask&gt; &lt;interface&gt; [mac]
+                             Example: &quot;0/0 ZMQHUB 24, 24/2 ZMQHUB&quot;
+  -z, --csp-zmq[=SERVER]     Add ZMQ interface
+                             SERVER=localhost
+  Examples:
+  CAN: configure address 10 and CAN interface can0:
+    $ &lt;application&gt; -a10 -ccan0
+  KISS: configure address 10 and uart on /dev/ttyUSB0 at baudrate 500000:
+    $ &lt;application&gt; -a10 -k/dev/ttyUSB0,speed=500000
+  I2C: configure address 10 and I2C Aardvark dongle with id 2238384015, speed
+  400K:
+    $ &lt;application&gt; -a10 -i2238384015,speed=400000
+  ZMQ: configure address 10 and ZMQ proxy on localhost:
+    $ &lt;application&gt; -a10 -zlocalhost
+
+  -?, --help                 Give this help list
+  -h, --help                 Give this help list
+      --usage                Give a short usage message
+  -V, --version              Print program version
+
+Mandatory or optional arguments to long options are also mandatory or optional
+for any corresponding short options.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="can">
+<h1>1.3. CAN<a class="headerlink" href="#can" title="Permalink to this headline">¶</a></h1>
+<p>GomSpace use a CAN USB dongle (<a class="reference external" href="https://www.peak-system.com/PCAN-USB.199.0.html?&amp;L=1">https://www.peak-system.com/PCAN-USB.199.0.html?&amp;L=1</a>),
+for CAN communication with products.</p>
+<p>Once the CAN dongle is connected to the PC, it should be visible in the USB device list:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ lsusb
+Bus 001 Device 108: ID 0c72:000c PEAK System PCAN-USB
+</pre></div>
+</div>
+<p>To configure the device (name: can0, speed: 1Mbps and error handling: restart), use following commands:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ sudo modprobe peak_usb
+$ sudo ip link set dev can0 down
+$ sudo ip link set can0 type can restart-ms 1000
+$ sudo ip link set dev can0 up type can bitrate 1000000
+</pre></div>
+</div>
+<p>The device can be used by the Product Interface Application, using option <cite>-c</cite>.</p>
+<div class="section" id="can-utils">
+<h2>1.3.1. can-utils<a class="headerlink" href="#can-utils" title="Permalink to this headline">¶</a></h2>
+<p><cite>can-utils</cite> is Linux package, containing a number of tools for CAN debugging:</p>
+<ul class="simple">
+<li>candump: dump all traffic on a CAN device</li>
+<li>cansend: send CAN message, consisting of a message id and up to 8 bytes payload</li>
+</ul>
+<p><cite>can-utils</cite> can be installed using standard commands:</p>
+<div class="highlight-default"><div class="highlight"><pre>$ sudo apt install can-utils
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="i2c-spi">
+<h1>1.4. I2C/SPI<a class="headerlink" href="#i2c-spi" title="Permalink to this headline">¶</a></h1>
+<p>GomSpace uses a I2C/SPI USB dongle for I2C/SPI communication with products. See <a class="reference internal" href="../lib/libaardvark/doc/libaardvark.html#libaardvark"><span class="std std-ref">Aardvark (libaardvark)</span></a> for details.</p>
+<p>The device can be used by the Product Interface Application, using option <cite>-i</cite>, <cite>-I</cite> or <cite>-S</cite>.</p>
+</div>
+<div class="section" id="python-bindings">
+<h1>1.5. Python bindings<a class="headerlink" href="#python-bindings" title="Permalink to this headline">¶</a></h1>
+<p>Some of the clients include Python bindings for ground operations using Python.
+The Python bindings are experimental and in active development, the documentation and support is limited.</p>
+<p>The bindings utilise the standard Python C-API and are special .so-files that call the C-code in the
+corresponding library .so-file. (e.g., libgsutil_py3.so and libgsutil.so)
+To compile the Python bindings, call Waf adding an extra option
+(or remove the corresponding line from the wscript):</p>
+<div class="highlight-default"><div class="highlight"><pre>$ ./waf distclean configure --build-disable=&quot;&quot; build
+</pre></div>
+</div>
+<p>To use the Python bindings paths to the .so-files must be in the LD_LIBRARY_PATH environment variable
+and Python module paths added to the env PYTHON_PATH environment variable.
+The library methods are used in Python files by e.g.,:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">libgsftp_client_py3</span> <span class="k">as</span> <span class="nn">gs_ftp</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="product_interfaces.html" class="btn btn-neutral float-right" title="2. Product Interfaces" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="csp-client.html" class="btn btn-neutral" title="1. Product Interface Application" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 GomSpace A/S..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.7.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

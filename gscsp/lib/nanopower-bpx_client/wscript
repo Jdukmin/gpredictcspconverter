@@ -1,0 +1,52 @@
+#!/usr/bin/env python
+# encoding: utf-8
+# Copyright (c) 2013-2018 GomSpace A/S. All rights reserved.
+
+import os
+import gs_gcc
+import gs_util
+
+APPNAME = 'nanopower-bpx_client'
+
+
+def options(ctx):
+    ctx.load('gs_gcc')
+    gs_gcc.gs_recurse(ctx)
+
+    gr = ctx.add_option_group('NanoPower-bpx client options')
+    gr.add_option('--enable-bpx-client', action='store_true',
+                  help='Enable client code for NanoPower-bpx')
+    gr.add_option('--enable-bpx-slave-client', action='store_true',
+                  help='Enable client code for NanoPower-bpx I2C slave')
+    gr.add_option('--disable-bpx-cmd', action='store_true',
+                  help='Disable cmd client code for NanoPower-bpx')
+
+
+def configure(ctx):
+    ctx.load('gs_gcc')
+
+    if ctx.options.enable_bpx_client:
+        ctx.env.append_unique('FILES_EPS_BPX_CLIENT',   ['src/bpx.c'])
+        if not ctx.options.disable_bpx_cmd:
+            ctx.env.append_unique('FILES_EPS_BPX_CLIENT',   ['src/cmd_bpx.c'])
+
+    if ctx.options.enable_bpx_slave_client:
+        ctx.env.append_unique('FILES_EPS_BPX_CLIENT',   ['src/cmd_bpx_slave.c'])
+
+    gs_gcc.gs_recurse(ctx)
+
+
+def build(ctx):
+    gs_gcc.gs_recurse(ctx)
+    ctx(export_includes=['include'], name=APPNAME + '_h')
+    ctx.gs_call_handler(handler='param_gen_4_0', name=APPNAME, prefix='bpx', generate_addr=False)
+    if ctx.env.FILES_EPS_BPX_CLIENT:
+        ctx.objects(source=ctx.path.ant_glob(ctx.env.FILES_EPS_BPX_CLIENT),
+                    target=APPNAME,
+                    includes='include',
+                    export_includes='include',
+                    use=['csp', 'gosh', 'util'])
+
+
+def gs_dist(ctx):
+    ctx.add_default_files(source_module=True)

@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.1.5. Setting up gsbuildall.py &mdash; Product Interface Application 2.7.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Product Interface Application 2.7.1 documentation" href="../../../index.html"/>
+        <link rel="up" title="4.1. BuildTools" href="buildtools.html"/>
+        <link rel="next" title="4.1.6. Using gsbuildtools on Command Line" href="cmdline.html"/>
+        <link rel="prev" title="4.1.4. Docker functionality" href="docker.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../doc/index.html" class="icon icon-home"> Product Interface Application
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/csp-client.html">1. Product Interface Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/product_interfaces.html">2. Product Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/libraries.html">3. Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/tools.html">4. Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/appendix/appendix.html">5. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../doc/index.html">Product Interface Application</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../doc/index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../doc/tools.html">4. Tools</a> &raquo;</li>
+      
+          <li><a href="buildtools.html">4.1. BuildTools</a> &raquo;</li>
+      
+    <li>4.1.5. Setting up gsbuildall.py</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="setting-up-gsbuildall-py">
+<h1>4.1.5. Setting up gsbuildall.py<a class="headerlink" href="#setting-up-gsbuildall-py" title="Permalink to this headline">¶</a></h1>
+<p>This sections contains documentation for various commands useful when creating a <code class="docutils literal"><span class="pre">gsbuildall.py</span> <span class="pre">file.</span></code></p>
+<dl class="function">
+<dt id="gs.buildtools.util.waf_command">
+<code class="descclassname">gs.buildtools.util.</code><code class="descname">waf_command</code><span class="sig-paren">(</span><em>options=[], cmd=['distclean', 'configure', 'clean', 'build'], dir='.', recurse=False, force_docker_img=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gs.buildtools.util.waf_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run a <code class="docutils literal"><span class="pre">waf</span></code> command</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>options</strong> – a list of command line options passed to <code class="docutils literal"><span class="pre">waf</span></code></li>
+<li><strong>cmd</strong> – a list of subcommands to run with <code class="docutils literal"><span class="pre">waf</span></code>, useful when wanting to build <code class="docutils literal"><span class="pre">doc</span></code> or <code class="docutils literal"><span class="pre">gs_dist</span></code></li>
+<li><strong>dir</strong> – the working directory for the <code class="docutils literal"><span class="pre">waf</span></code> command.</li>
+<li><strong>recurse</strong> – If True run the <code class="docutils literal"><span class="pre">waf</span></code> command in all subfolder with a wscript</li>
+<li><strong>force_docker_img</strong> – If set the waf command will be executed using the specified docker image</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="gs.buildtools.util.copy_to_artifact">
+<code class="descclassname">gs.buildtools.util.</code><code class="descname">copy_to_artifact</code><span class="sig-paren">(</span><em>files</em>, <em>subdir=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gs.buildtools.util.copy_to_artifact" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="gs.buildtools.util.manifest_command">
+<code class="descclassname">gs.buildtools.util.</code><code class="descname">manifest_command</code><span class="sig-paren">(</span><em>exclude=[]</em>, <em>subdir=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gs.buildtools.util.manifest_command" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="gs.buildtools.util.status_command">
+<code class="descclassname">gs.buildtools.util.</code><code class="descname">status_command</code><span class="sig-paren">(</span><em>skip_verify=[]</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#gs.buildtools.util.status_command" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="gs.buildtools.util.cppcheck_command">
+<code class="descclassname">gs.buildtools.util.</code><code class="descname">cppcheck_command</code><span class="sig-paren">(</span><em>options=['--enable=all', '--inconclusive', '--std=posix', '--std=c99', '--inline-suppr'], sources=['.'], suppression_files=[], output_file='build/cppcheck-results.xml', excludes=[], basic_excludes=['./artifacts', './clients', './lib', './.jenkinstmp']</em><span class="sig-paren">)</span><a class="headerlink" href="#gs.buildtools.util.cppcheck_command" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="gs.buildtools.util.stylecheck_command">
+<code class="descclassname">gs.buildtools.util.</code><code class="descname">stylecheck_command</code><span class="sig-paren">(</span><em>sources=['src/**/*.[c,h]*', 'include/**/*.h*', 'tst/**/*.[h,c]*'], python_sources=[], profile='gomspace_basic', output_file=None, excludes=[], basic_excludes=['artifacts/**/*', '.jenkinstmp/**/*', 'lib/**/*', 'clients/**/*', '**/.waf*/**/*', '**/build/**/*', '**/tools/buildtools/**/*']</em><span class="sig-paren">)</span><a class="headerlink" href="#gs.buildtools.util.stylecheck_command" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="gs.buildtools.util.clear_artifacts">
+<code class="descclassname">gs.buildtools.util.</code><code class="descname">clear_artifacts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gs.buildtools.util.clear_artifacts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="gs.buildtools.compiler_settings.get_parts">
+<code class="descclassname">gs.buildtools.compiler_settings.</code><code class="descname">get_parts</code><span class="sig-paren">(</span><em>keywords=[]</em>, <em>excludes=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#gs.buildtools.compiler_settings.get_parts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return parts matching the specified keywords</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gs.buildtools.verify_dist_tarball.exec_commands">
+<code class="descclassname">gs.buildtools.verify_dist_tarball.</code><code class="descname">exec_commands</code><span class="sig-paren">(</span><em>tarball_glob_pattern</em>, <em>commands</em>, <em>docker_image=None</em>, <em>part=None</em><span class="sig-paren">)</span><a class="headerlink" href="#gs.buildtools.verify_dist_tarball.exec_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cmdline.html" class="btn btn-neutral float-right" title="4.1.6. Using gsbuildtools on Command Line" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="docker.html" class="btn btn-neutral" title="4.1.4. Docker functionality" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 GomSpace A/S..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.7.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

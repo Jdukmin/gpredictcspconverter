@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.10.2. Python example &mdash; Product Interface Application 2.7.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Product Interface Application 2.7.1 documentation" href="../../../index.html"/>
+        <link rel="up" title="3.10. Remote GOSH (librgosh_client)" href="librgosh_client.html"/>
+        <link rel="next" title="3.10.3. “C” example" href="c_example.html"/>
+        <link rel="prev" title="3.10.1. Introduction" href="introduction.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../doc/index.html" class="icon icon-home"> Product Interface Application
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/csp-client.html">1. Product Interface Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/product_interfaces.html">2. Product Interfaces</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../doc/libraries.html">3. Libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../libaardvark/doc/libaardvark.html">3.1. Aardvark (libaardvark)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libgscsp/doc/libgscsp.html">3.2. GomSpace CSP (libgscsp)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libfp_client/doc/libfp_client.html">3.3. Flight Planner (libfp_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libftp_client/doc/libftp_client.html">3.4. FTP (libftp_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libgosh_client/doc/libgosh_client.html">3.5. GOSH (libgosh_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libgssb_client/doc/libgssb_client.html">3.6. GomSpace Sensor Bus (libgssb_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libhk_client/doc/libhk_client.html">3.7. Housekeeping (libhk_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libnanopb/doc/libnanopb.html">3.8. Nano Protobuf (libnanopb)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libparam_client/doc/libparam_client.html">3.9. Parameter System (libparam_client)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="librgosh_client.html">3.10. Remote GOSH (librgosh_client)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">3.10.1. Introduction</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.10.2. Python example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="c_example.html">3.10.3. “C” example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../libutil/doc/libutil.html">3.11. Utility (libutil)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/tools.html">4. Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/appendix/appendix.html">5. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../doc/index.html">Product Interface Application</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../doc/index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../doc/libraries.html">3. Libraries</a> &raquo;</li>
+      
+          <li><a href="librgosh_client.html">3.10. Remote GOSH (librgosh_client)</a> &raquo;</li>
+      
+    <li>3.10.2. Python example</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python-example">
+<h1>3.10.2. Python example<a class="headerlink" href="#python-example" title="Permalink to this headline">¶</a></h1>
+<p>Below is an example that shows how to use the python bindings from the Remote GOSH client library
+to create a simple Python application.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="ch">#!/usr/bin/python</span>
+<span class="c1"># Copyright (c) 2013-2018 GomSpace A/S. All rights reserved.</span>
+
+<span class="c1"># bootstrap to buildtools</span>
+<span class="c1"># ./gsbuildtools.py clone</span>
+<span class="c1"># build with: ./waf configure build --enable-bindings --enable-crc32</span>
+<span class="c1">#    --enable-rdp --enable-if-zmq --enable-if-can --enable-can-socketcan --enable-xtea --enable-if-kiss</span>
+<span class="c1"># from repo root with: LD_LIBRARY_PATH=build:build/lib/libutil:build/lib/libgscsp:</span>
+<span class="c1">#                                      build/lib/libgscsp/lib/libcsp:build/lib/libnanopb</span>
+<span class="c1">#    python tst/py_example/bindings_example.py</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;build&quot;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;build/lib/libgscsp&quot;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;build/lib/libgscsp/lib/libcsp&quot;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;build/lib/libnanopb&quot;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="c1"># from libgsrgosh_client_py3 import *</span>
+    <span class="kn">import</span> <span class="nn">libgsrgosh_client_py3</span> <span class="kn">as</span> <span class="nn">rgosh</span>
+    <span class="kn">import</span> <span class="nn">libcsp_py3</span> <span class="kn">as</span> <span class="nn">csp</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># from libgsrgosh_client_py2 import *</span>
+    <span class="kn">import</span> <span class="nn">libgsrgosh_client_py2</span> <span class="kn">as</span> <span class="nn">rgosh</span>
+    <span class="kn">import</span> <span class="nn">libcsp_py2</span> <span class="kn">as</span> <span class="nn">csp</span>
+
+
+<span class="n">TST_RGOSH_LOCAL_CSP_NODE</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">TST_RGOSH_LOCAL_CSP_PORT</span> <span class="o">=</span> <span class="mi">12</span>
+
+<span class="n">TST_RGOSH_REMOTE_CSP_NODE</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">csp</span><span class="o">.</span><span class="n">buffer_init</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
+    <span class="n">csp</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">TST_RGOSH_LOCAL_CSP_NODE</span><span class="p">)</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="n">csp</span><span class="o">.</span><span class="n">zmqhub_init</span><span class="p">(</span><span class="n">TST_RGOSH_LOCAL_CSP_NODE</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s2">&quot;Failed setting up ZMQ interface&quot;</span>
+
+    <span class="n">err</span> <span class="o">=</span> <span class="n">csp</span><span class="o">.</span><span class="n">rtable_set</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;ZMQHUB&quot;</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s2">&quot;Failed setting up Route table&quot;</span>
+
+    <span class="n">err</span> <span class="o">=</span> <span class="n">csp</span><span class="o">.</span><span class="n">route_start_task</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s2">&quot;Failed starting router task&quot;</span>
+
+    <span class="c1"># wait for routing task to start</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">print</span> <span class="s2">&quot;Setup done - Ready to start.......&quot;</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">csp</span><span class="o">.</span><span class="n">ping</span><span class="p">(</span><span class="n">TST_RGOSH_REMOTE_CSP_NODE</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s2">&quot;Failed to ping remote node!&quot;</span>
+
+    <span class="k">print</span> <span class="s2">&quot;Sending RGOSH command....&quot;</span>
+    <span class="p">[</span><span class="n">err</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">res</span><span class="p">]</span> <span class="o">=</span> <span class="n">rgosh</span><span class="o">.</span><span class="n">run_command</span><span class="p">(</span><span class="n">TST_RGOSH_REMOTE_CSP_NODE</span><span class="p">,</span> <span class="n">TST_RGOSH_LOCAL_CSP_PORT</span><span class="p">,</span> <span class="s2">&quot;clock&quot;</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s2">&quot;RGOSH Run Command returned: &lt;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&gt;&quot;</span>
+    <span class="k">print</span> <span class="s2">&quot;RGOSH Run Command output: &lt;&quot;</span> <span class="o">+</span> <span class="n">out</span> <span class="o">+</span> <span class="s2">&quot;&gt;&quot;</span>
+    <span class="k">print</span> <span class="s2">&quot;RGOSH Run Command results:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="c_example.html" class="btn btn-neutral float-right" title="3.10.3. “C” example" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="3.10.1. Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 GomSpace A/S..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.7.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

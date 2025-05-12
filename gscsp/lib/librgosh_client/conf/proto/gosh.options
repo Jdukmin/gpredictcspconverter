@@ -1,0 +1,9 @@
+ResultTuple.key             max_size:32
+ResultTuple.value           max_size:128
+ResultTuple.group           max_size:32
+
+CommandResponse.std_out     max_size:256
+CommandResponse.results     max_count:4
+
+RunCommand.command          max_size:128
+RunScriptCommand.script     max_size:128

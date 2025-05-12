@@ -1,0 +1,51 @@
+#!/usr/bin/env python
+# encoding: utf-8
+# Copyright (c) 2013-2020 GomSpace A/S. All rights reserved.
+
+import gs_gcc
+
+APPNAME = 'fp_client'
+
+
+def options(ctx):
+    ctx.load('gs_gcc')
+    gs_gcc.gs_recurse(ctx)
+
+
+def configure(ctx):
+    ctx.load('gs_gcc')
+
+    ctx.env.append_unique('USES_FP_CLIENT', ['gscsp', 'embed', 'util'])
+
+    ctx.env.append_unique('FILES_FP_CLIENT', ['src/*.c', 'src/cmd/**/*.c'])
+
+    ctx.gs_add_doxygen(exclude=['*/include/gs/fp/internal/*'])
+
+    gs_gcc.gs_recurse(ctx)
+
+
+def build(ctx):
+    gs_gcc.gs_recurse(ctx)
+
+    public_include = ctx.gs_include(includes=['include'], name=APPNAME)
+
+    ctx.gs_call_handler(handler='command_gen_4_1', name=APPNAME, input=['conf/commands/fp.json'],
+                        generate_src=True,
+                        generate_rsti_table=True)
+
+    ctx.gs_objects(source=ctx.path.ant_glob(ctx.env.FILES_FP_CLIENT),
+                   target=APPNAME,
+                   use=ctx.env.USES_FP_CLIENT + [public_include])
+
+    ctx.gs_shlib(source=ctx.path.ant_glob(ctx.env.FILES_FP_CLIENT),
+                 target=APPNAME,
+                 gs_use_shlib=ctx.env.USES_FP_CLIENT + [public_include])
+
+    ctx.gs_python_bindings(source=ctx.path.ant_glob('src/bindings/python/*.c'),
+                           target=APPNAME,
+                           gs_use_shlib=ctx.env.USES_FP_CLIENT + [APPNAME],
+                           package='libfp')
+
+
+def gs_dist(ctx):
+    ctx.add_default_files(source_module=True)

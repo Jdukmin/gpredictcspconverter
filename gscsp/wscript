@@ -1,0 +1,97 @@
+#!/usr/bin/env python
+# encoding: utf-8
+# Copyright (c) 2013-2017 GomSpace A/S. All rights reserved.
+
+import os
+import time
+import gs_doc
+import gs_gcc
+import gs_util
+import gs_dist
+import gs.buildtools.util
+from waflib.Build import BuildContext
+
+APPNAME = 'csp-client'
+
+
+def options(ctx):
+    ctx.load('gs_gcc gs_doc')
+    gs_gcc.gs_recurse(ctx)
+
+    gr = ctx.add_option_group("CSP-CLIENT options")
+    ctx.add_option('--build-disable', action='store', default='stlib,shlib', help='Disable build of .a/.so libs')
+
+
+def configure(ctx):
+    ctx.load('gs_gcc gs_doc')
+
+    ctx.gs_get_build_info('DEFINES', appName=APPNAME)
+
+    # Options for libgscsp/libcsp
+    ctx.options.enable_rdp = True
+    ctx.options.enable_crc32 = True
+    ctx.options.enable_hmac = True
+    ctx.options.enable_xtea = True
+    ctx.options.enable_if_kiss = True
+    ctx.options.enable_if_can = True
+    ctx.options.enable_if_i2c = True
+    ctx.options.enable_if_zmqhub = False
+    ctx.options.with_rtable = 'cidr'
+    ctx.options.enable_can_socketcan = True
+    ctx.options.with_router_queue_length = 100
+    ctx.options.with_conn_queue_length = 100
+
+    # Options for clients
+    ctx.options.gssb_twi_handler = 0
+    ctx.options.gssb_enable_istage = True
+    ctx.options.gssb_enable_msp = True
+    ctx.options.gssb_enable_sunsensor = True
+    ctx.options.gssb_enable_ar6 = True
+    ctx.options.gssb_enable_ant6 = True
+    ctx.options.gssb_enable_i4 = True
+    ctx.options.enable_nanopower2_client = True
+    ctx.options.enable_bpx_client = True
+
+    gs_gcc.gs_recurse(ctx)
+
+
+def build(ctx):
+    gs_gcc.gs_recurse(ctx)
+
+    use = [t.name for t in ctx.get_all_task_gen() if hasattr(t, 'typ') and t.typ == 'objects']
+
+    # ctx.program(source=ctx.path.ant_glob('src/*.c'),
+    #             target=APPNAME,
+    #             use=use,
+    #             lib=ctx.env.LIBS + ['m', 'dl', 'rt', 'pthread'])
+    ctx.shlib(source=ctx.path.ant_glob('src/*.c'),
+                target=APPNAME,
+                use=use,
+                lib=ctx.env.LIBS + ['m', 'dl', 'rt', 'pthread'])
+    os.system('cp lib/libaardvark/lib/lib64/libaardvark_c.so build/libaardvark_c.so')
+
+
+def doc(ctx):
+    gs_doc.manual(ctx,
+                  doxygen=True,
+                  keyvalues={'gs_prod_group': 'NanoSoft',
+                             'gs_prod_name': 'Product Interface Application',
+                             'gs_prod_desc': 'Software Development Kit',
+                             'gs_ifs_doc_number': '1018560',
+                             'gs_sphinx_tags': []})
+
+
+class Doc(BuildContext):
+    cmd = fun = 'doc'
+
+
+def gs_dist(ctx):
+    ctx.set_appname('gs-sw-nanosoft-product-interface-application')
+    ctx.set_subdir('external')
+    ctx.recurse('tools/buildtools')
+    gs_gcc.gs_recurse(ctx)
+    ctx.add_default_files(source_module=True)
+    ctx.add_file_to_dir(ctx.path.ant_glob('artifacts/external/*.pdf'), 'doc')
+    ctx.add_file_on_path('artifacts/html', 'doc/html')
+    ctx.add_file_to_dir('artifacts/manifest.json', "")
+    ctx.add_file_to_dir(ctx.path.ant_glob('artifacts/csp-client'), 'build')

@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.1.3.2. Gomspace CSP extension (libgscsp) &mdash; Product Interface Application 2.7.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Product Interface Application 2.7.1 documentation" href="../../index.html"/>
+        <link rel="up" title="5.1.3. Libraries" href="../../doc/appendix/changelogs_libraries.html"/>
+        <link rel="next" title="5.1.3.2.1. Software changelog (libcsp)" href="CSP_CHANGELOG.html"/>
+        <link rel="prev" title="5.1.3.1. Aardvark Interface (libaardvark)" href="../libaardvark/CHANGELOG.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../doc/index.html" class="icon icon-home"> Product Interface Application
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../doc/csp-client.html">1. Product Interface Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/product_interfaces.html">2. Product Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/libraries.html">3. Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/tools.html">4. Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../doc/appendix/appendix.html">5. Appendix</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../doc/appendix/changelogs.html">5.1. Software Changelogs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../CHANGELOG.html">5.1.1. Product Interface Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/appendix/changelogs_product_interfaces.html">5.1.2. Product Interfaces</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../doc/appendix/changelogs_libraries.html">5.1.3. Libraries</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../libaardvark/CHANGELOG.html">5.1.3.1. Aardvark Interface (libaardvark)</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">5.1.3.2. Gomspace CSP extension (libgscsp)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libfp_client/CHANGELOG.html">5.1.3.3. Flight Planner (libfp_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libftp_client/CHANGELOG.html">5.1.3.4. File Transfer Protocol (libftp_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libgosh_client/CHANGELOG.html">5.1.3.5. Gomspace Shell (libgosh_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libgssb_client/CHANGELOG.html">5.1.3.6. GomSpace Sensor Bus (libgssb_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libhk_client/CHANGELOG.html">5.1.3.7. Housekeeping System (libhk_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libnanopb/CHANGELOG.html">5.1.3.8. Nano Protobuf (libnanopb)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libparam_client/CHANGELOG.html">5.1.3.9. Parameter System (libparam_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../librgosh_client/CHANGELOG.html">5.1.3.10. Remote GOSH (librgosh_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libutil/CHANGELOG.html">5.1.3.11. Utility (libutil)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/appendix/changelogs_tools.html">5.1.4. Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../doc/appendix/api.html">5.2. API Documentation</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../doc/index.html">Product Interface Application</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../doc/index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../doc/appendix/appendix.html">5. Appendix</a> &raquo;</li>
+      
+          <li><a href="../../doc/appendix/changelogs.html">5.1. Software Changelogs</a> &raquo;</li>
+      
+          <li><a href="../../doc/appendix/changelogs_libraries.html">5.1.3. Libraries</a> &raquo;</li>
+      
+    <li>5.1.3.2. Gomspace CSP extension (libgscsp)</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gomspace-csp-extension-libgscsp">
+<h1>5.1.3.2. Gomspace CSP extension (libgscsp)<a class="headerlink" href="#gomspace-csp-extension-libgscsp" title="Permalink to this headline">¶</a></h1>
+<p><strong>3.0.1 (2020-05-15)</strong></p>
+<ul class="simple">
+<li>Breaking: Updated to libcsp v1.6 - see libcsp CHANGELOG for details. APIs are primarily broken in regards to csp_init() and interfaces impl.</li>
+</ul>
+<p><strong>2.7.4 (2020-03-18)</strong></p>
+<ul class="simple">
+<li>Improvement: Reduced GS_CSP_DEFAULT_MAX_PAYLOAD_SIZE to make room for the RDP header.</li>
+</ul>
+<p><strong>2.7.3 (2019-11-13)</strong></p>
+<ul class="simple">
+<li>Improvement: Updated libcsp: Always install all header files.</li>
+</ul>
+<p><strong>2.7.2 (2019-10-16)</strong></p>
+<ul class="simple">
+<li>Feature: Added default value for max CSP packet payload, GS_CSP_DEFAULT_MAX_PAYLOAD_SIZE.</li>
+<li>Feature: Added ‘count’ option on ping command, pings destination ‘count’ times and shows average ping time.</li>
+</ul>
+<p><strong>2.7.1 (2019-07-03)</strong></p>
+<ul class="simple">
+<li>Feature: Added support for ping without CRC32.</li>
+<li>Improvement: Changed formatting of ‘uptime’ command.</li>
+<li>Improvement: Changed CAN logging to match CAN logging from libembed.</li>
+<li>Improvement: Updated libcsp: CAN driver: get time correctly depending on context - ISR or task.</li>
+</ul>
+<p><strong>2.6.2 (2019-05-16)</strong></p>
+<ul class="simple">
+<li>Improvement: Include CAN support in .deb package.</li>
+</ul>
+<p><strong>2.6.1 (2019-04-08)</strong></p>
+<ul class="simple">
+<li>Improvement: Support longer device names on command line.</li>
+</ul>
+<p><strong>2.5.1 (2019-03-10)</strong></p>
+<ul class="simple">
+<li>Bug: Made CAN driver use the chosen CAN device in both initialization and TX and RX.</li>
+<li>Feature: Added support for multiple csp_zmq interfaces in process.</li>
+<li>Bug: libcsp, fixed bug in linux usart driver, didn’t detect read error as expected.</li>
+<li>Breaking: libcsp, removed static “csp_if_zmqhub” interface.</li>
+<li>Improvement: added error handling in usart driver (linux), fail if device cannot be opened.</li>
+</ul>
+<p><strong>2.4.3 (2019-01-29)</strong></p>
+<ul class="simple">
+<li>Improvement: Register all used log groups.</li>
+<li>Improvement: libcsp: Support changing MTU on CAN interface.</li>
+<li>Bug: libcsp: Fixed race condition when allocating dynamic port (client connection).</li>
+</ul>
+<p><strong>2.4.2 (2018-12-19)</strong></p>
+<ul class="simple">
+<li>Improvement: Added defines for GS_CSP_PORT_AIS(13) and GS_CSP_PORT_ADSB(14) to prevent future clashing</li>
+<li>Improvement: Updated documentation.</li>
+</ul>
+<p><strong>2.4.1 (2018-11-21)</strong></p>
+<ul class="simple">
+<li>Improvement: Added gs_csp_init(), gs_csp_rtable_load() and command line support.</li>
+</ul>
+<p><strong>2.3.2 (2018-09-19)</strong></p>
+<ul class="simple">
+<li>Improvement: Remove a few logs from ISR context, could cause crashes.</li>
+<li>Improvement: RDP - limit pending messages to window size (not windows size +1).</li>
+<li>Bug: Fixed possible RDP csp_send() deadlock issue (LIBGSCSP-6).</li>
+<li>Breaking: Updated gs_service_dispatcher and gs_router APIs to improve automatic testing.</li>
+<li>Feature: updated libcsp to public version 1.5 (release-1.5 branch).</li>
+</ul>
+<p><strong>2.3.1 (2018-08-13)</strong></p>
+<ul class="simple">
+<li>Feature: Added gs_csp_service_dispatcher().</li>
+<li>Feature: Enable CRC32 on all connections as default.</li>
+</ul>
+<p><strong>2.2.2 (2018-05-30)</strong></p>
+<ul class="simple">
+<li>Breaking: Updated internal use of reset API from libembed, which now takes a reset cause.</li>
+<li>Feature: Added support for CSP logging through libutil::log.</li>
+</ul>
+<p><strong>2.1.2 (2018-04-17)</strong></p>
+<ul class="simple">
+<li>Breaking: Changed name of dynamic library: libgsgscsp -&gt; libgscsp</li>
+</ul>
+<p><strong>2.0.0 (2018-03-07)</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="CSP_CHANGELOG.html">5.1.3.2.1. Software changelog (libcsp)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CSP_CHANGELOG.html#libcsp-gomspace">5.1.3.2.1.1. libcsp (GomSpace)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSP_CHANGELOG.html#libcsp-1-6-16-04-2020">5.1.3.2.1.2. libcsp 1.6, 16-04-2020</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSP_CHANGELOG.html#libcsp-1-5-internal-21-08-2018">5.1.3.2.1.3. libcsp 1.5-internal, 21-08-2018</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSP_CHANGELOG.html#libcsp-1-4-07-05-2015">5.1.3.2.1.4. libcsp 1.4, 07-05-2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSP_CHANGELOG.html#libcsp-1-3-07-05-2015">5.1.3.2.1.5. libcsp 1.3, 07-05-2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSP_CHANGELOG.html#libcsp-1-2-25-10-2013">5.1.3.2.1.6. libcsp 1.2, 25-10-2013</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSP_CHANGELOG.html#libcsp-1-1-24-08-2012">5.1.3.2.1.7. libcsp 1.1, 24-08-2012</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSP_CHANGELOG.html#libcsp-1-0-1-30-10-2011">5.1.3.2.1.8. libcsp 1.0.1, 30-10-2011</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CSP_CHANGELOG.html#libcsp-1-0-24-10-2011">5.1.3.2.1.9. libcsp 1.0, 24-10-2011</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="CSP_CHANGELOG.html" class="btn btn-neutral float-right" title="5.1.3.2.1. Software changelog (libcsp)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../libaardvark/CHANGELOG.html" class="btn btn-neutral" title="5.1.3.1. Aardvark Interface (libaardvark)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 GomSpace A/S..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.7.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,283 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.2.3.1. The Cubesat Space Protocol &mdash; Product Interface Application 2.7.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="Product Interface Application 2.7.1 documentation" href="../../../../index.html"/>
+        <link rel="up" title="3.2.3. CubeSat Space Protocol" href="doc/libcsp.html"/>
+        <link rel="next" title="3.2.3.2. History" href="doc/history.html"/>
+        <link rel="prev" title="3.2.3. CubeSat Space Protocol" href="doc/libcsp.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../doc/index.html" class="icon icon-home"> Product Interface Application
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../doc/csp-client.html">1. Product Interface Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../doc/product_interfaces.html">2. Product Interfaces</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../doc/libraries.html">3. Libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../libaardvark/doc/libaardvark.html">3.1. Aardvark (libaardvark)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../doc/libgscsp.html">3.2. GomSpace CSP (libgscsp)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../doc/introduction.html">3.2.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/commands.html">3.2.2. Commands</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="doc/libcsp.html">3.2.3. CubeSat Space Protocol</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3.2.3.1. The Cubesat Space Protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="doc/history.html">3.2.3.2. History</a></li>
+<li class="toctree-l4"><a class="reference internal" href="doc/structure.html">3.2.3.3. Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="doc/basic.html">3.2.3.4. The basics of CSP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="doc/memory.html">3.2.3.5. How CSP uses memory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="doc/protocolstack.html">3.2.3.6. The Protocol Stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="doc/topology.html">3.2.3.7. Network Topology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="doc/mtu.html">3.2.3.8. Maximum Transfer Unit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="doc/example.html">3.2.3.9. Client and server example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../libfp_client/doc/libfp_client.html">3.3. Flight Planner (libfp_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../libftp_client/doc/libftp_client.html">3.4. FTP (libftp_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../libgosh_client/doc/libgosh_client.html">3.5. GOSH (libgosh_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../libgssb_client/doc/libgssb_client.html">3.6. GomSpace Sensor Bus (libgssb_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../libhk_client/doc/libhk_client.html">3.7. Housekeeping (libhk_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../libnanopb/doc/libnanopb.html">3.8. Nano Protobuf (libnanopb)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../libparam_client/doc/libparam_client.html">3.9. Parameter System (libparam_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../librgosh_client/doc/librgosh_client.html">3.10. Remote GOSH (librgosh_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../libutil/doc/libutil.html">3.11. Utility (libutil)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../doc/tools.html">4. Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../doc/appendix/appendix.html">5. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../doc/index.html">Product Interface Application</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../doc/index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../doc/libraries.html">3. Libraries</a> &raquo;</li>
+      
+          <li><a href="../../doc/libgscsp.html">3.2. GomSpace CSP (libgscsp)</a> &raquo;</li>
+      
+          <li><a href="doc/libcsp.html">3.2.3. CubeSat Space Protocol</a> &raquo;</li>
+      
+    <li>3.2.3.1. The Cubesat Space Protocol</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-cubesat-space-protocol">
+<h1>3.2.3.1. The Cubesat Space Protocol<a class="headerlink" href="#the-cubesat-space-protocol" title="Permalink to this headline">¶</a></h1>
+<p>Cubesat Space Protocol (CSP) is a small protocol stack written in C. CSP is designed to ease communication between distributed embedded systems in smaller networks, such as Cubesats. The design follows the TCP/IP model and includes a transport protocol, a routing protocol and several MAC-layer interfaces. The core of <cite>libcsp</cite> includes a router, a connection oriented socket API and message/connection pools.</p>
+<p>The protocol is based on a 32-bit header containing both transport and network-layer information. Its implementation is designed for, but not limited to, embedded systems such as the 8-bit AVR microprocessor and the 32-bit ARM and AVR from Atmel. The implementation is written in GNU C and is currently ported to run on FreeRTOS, Linux (POSIX), MacOS and Windows. The primiary platforms being used are FreeRTOS and Linux.</p>
+<p>The idea is to give sub-system developers of cubesats the same features of a TCP/IP stack, but without adding the huge overhead of the IP header. The small footprint and simple implementation allows a small 8-bit system to be fully connected on the network. This allows all subsystems to provide their services on the same network level, without any master node required. Using a service oriented architecture has several advantages compared to the traditional mater/slave topology used on many cubesats.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Standardised network protocol: All subsystems can communicate with eachother</li>
+<li>Service loose coupling: Services maintain a relationship that minimizes dependencies between subsystems</li>
+<li>Service abstraction: Beyond descriptions in the service contract, services hide logic from the outside world</li>
+<li>Service reusability: Logic is divided into services with the intention of promoting reuse.</li>
+<li>Service autonomy: Services have control over the logic they encapsulate.</li>
+<li>Service Redundancy: Easily add redundant services to the bus</li>
+<li>Reduces single point of failure: The complexity is moved from a single master node to several well defined services on the network</li>
+</ul>
+</div></blockquote>
+<p>The implementation of <cite>libcsp</cite> is written with simplicity in mind, but it’s compile time configuration allows it to have some rather advanced features as well:</p>
+<div class="section" id="features">
+<h2>3.2.3.1.1. Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Thread safe Socket API</li>
+<li>Router task with Quality of Services</li>
+<li>Connection-oriented operation (RFC 908 and 1151).</li>
+<li>Connection-less operation (similar to UDP)</li>
+<li>ICMP-like requests such as ping and buffer status.</li>
+<li>Loopback interface</li>
+<li>Very Small Footprint in regards to code and memory required</li>
+<li>Zero-copy buffer and queue system</li>
+<li>Modular network interface system</li>
+<li>OS abstraction, currently ported to: FreeRTOS, Linux (POSIX), MacOS and Windows</li>
+<li>Broadcast traffic</li>
+<li>Promiscuous mode</li>
+<li>Encrypted packets with XTEA in CTR mode</li>
+<li>Truncated HMAC-SHA1 Authentication (RFC 2104)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="lgpl-software-license">
+<h2>3.2.3.1.2. LGPL Software license<a class="headerlink" href="#lgpl-software-license" title="Permalink to this headline">¶</a></h2>
+<p>The source code is available under an LGPL 2.1 license. See COPYING for the license text.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="doc/history.html" class="btn btn-neutral float-right" title="3.2.3.2. History" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="doc/libcsp.html" class="btn btn-neutral" title="3.2.3. CubeSat Space Protocol" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 GomSpace A/S..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.7.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

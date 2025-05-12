@@ -1,0 +1,451 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.2.3.4. The basics of CSP &mdash; Product Interface Application 2.7.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../../search.html"/>
+    <link rel="top" title="Product Interface Application 2.7.1 documentation" href="../../../../../index.html"/>
+        <link rel="up" title="3.2.3. CubeSat Space Protocol" href="libcsp.html"/>
+        <link rel="next" title="3.2.3.5. How CSP uses memory" href="memory.html"/>
+        <link rel="prev" title="3.2.3.3. Structure" href="structure.html"/> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../doc/index.html" class="icon icon-home"> Product Interface Application
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../doc/csp-client.html">1. Product Interface Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../doc/product_interfaces.html">2. Product Interfaces</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../doc/libraries.html">3. Libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../libaardvark/doc/libaardvark.html">3.1. Aardvark (libaardvark)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../doc/libgscsp.html">3.2. GomSpace CSP (libgscsp)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../doc/introduction.html">3.2.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../doc/commands.html">3.2.2. Commands</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="libcsp.html">3.2.3. CubeSat Space Protocol</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../README.html">3.2.3.1. The Cubesat Space Protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="history.html">3.2.3.2. History</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structure.html">3.2.3.3. Structure</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">3.2.3.4. The basics of CSP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="memory.html">3.2.3.5. How CSP uses memory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="protocolstack.html">3.2.3.6. The Protocol Stack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="topology.html">3.2.3.7. Network Topology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mtu.html">3.2.3.8. Maximum Transfer Unit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="example.html">3.2.3.9. Client and server example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../libfp_client/doc/libfp_client.html">3.3. Flight Planner (libfp_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../libftp_client/doc/libftp_client.html">3.4. FTP (libftp_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../libgosh_client/doc/libgosh_client.html">3.5. GOSH (libgosh_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../libgssb_client/doc/libgssb_client.html">3.6. GomSpace Sensor Bus (libgssb_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../libhk_client/doc/libhk_client.html">3.7. Housekeeping (libhk_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../libnanopb/doc/libnanopb.html">3.8. Nano Protobuf (libnanopb)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../libparam_client/doc/libparam_client.html">3.9. Parameter System (libparam_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../librgosh_client/doc/librgosh_client.html">3.10. Remote GOSH (librgosh_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../libutil/doc/libutil.html">3.11. Utility (libutil)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../doc/tools.html">4. Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../doc/appendix/appendix.html">5. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../../doc/index.html">Product Interface Application</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../../doc/index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../../../doc/libraries.html">3. Libraries</a> &raquo;</li>
+      
+          <li><a href="../../../doc/libgscsp.html">3.2. GomSpace CSP (libgscsp)</a> &raquo;</li>
+      
+          <li><a href="libcsp.html">3.2.3. CubeSat Space Protocol</a> &raquo;</li>
+      
+    <li>3.2.3.4. The basics of CSP</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-basics-of-csp">
+<h1>3.2.3.4. The basics of CSP<a class="headerlink" href="#the-basics-of-csp" title="Permalink to this headline">¶</a></h1>
+<p>The following diagram shows a conceptual overview of the different blocks in CSP. The shown inferface is CAN (src/interfaces/csp_if_can.c, driver: src/drivers/can/can_socketcan.c).</p>
+<div class="highlight-none"><div class="highlight"><pre>    buffer                  connection   send   read/accept
+       ^                         |         |         ^
+       |                         |         v         |
+       |   +-----------------+   |     +----------------+    +-------------------+
+       |   | connection pool |   |     |    CSP Core    |    | csp_task_router() |
+       |   |  csp_conn.c     |&lt;--+----&gt;| * routing      |&lt;---|    csp_route.c    |
+       |   +-----------------+         | * crypt        |    +-------------------+
+       |                               | * UDP/RDP      |              ^
+       |                  csp_route_t  | * CRC32        |              |
+       v                 +------------&gt;|                |     +----------------+
++--------------+         |             |                |     | incoming queue |
+| buffer pool  |         |             |                |     |     qfifo.c    |
+| csp_buffer.c |  +-------------+      +----------------+     +----------------+
++--------------+  |routing table|            |                         ^
+       ^          |  rtable.c   |            v                         |
+       |          +-------------+      +------------------------------------+
+       |                               |  (next_hop)                        |
+       |                               |    CAN interface (csp_if_can.c)    |
+       +------------------------------&gt;|                      csp_can_rx()  |
+                                       +------------------------------------+
+                                             |   CAN frame (8 bytes)   ^
+                                             v                         |
+                                     csp_can_tx_frame()       socketcan_rx_thread()
+                                             (drivers/can/can_socketcan.c)
+</pre></div>
+</div>
+<div class="section" id="buffer">
+<h2>3.2.3.4.1. Buffer<a class="headerlink" href="#buffer" title="Permalink to this headline">¶</a></h2>
+<p>All buffers are allocated once during initialization of CSP, after this the buffer system is entirely self-contained. All allocated elements are of the same size, so the buffer size must be chosen to be able to handle the maximum possible packet length. The buffer pool uses a queue to store pointers to free buffer elements. First of all, this gives a very quick method to get the next free element since the dequeue is an O(1) operation. Furthermore, since the queue is a protected operating system primitive, it can be accessed from both task-context and interrupt-context. The <cite>csp_buffer_get()</cite> version is for task-context and <cite>csp_buffer_get_isr()</cite> is for interrupt-context. Using fixed size buffer elements that are preallocated is again a question of speed and safety.</p>
+<p>Definition of a buffer element <cite>csp_packet_t</cite>:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm">   CSP Packet.</span>
+
+<span class="cm">   This structure is constructed to fit with all interface and protocols to prevent the</span>
+<span class="cm">   need to copy data (zero copy).</span>
+
+<span class="cm">   @note In most cases a CSP packet cannot be reused in case of send failure, because the</span>
+<span class="cm">   lower layers may add additional data causing increased length (e.g. CRC32), convert</span>
+<span class="cm">   the CSP id to different endian (e.g. I2C), etc.</span>
+<span class="cm">*/</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+	<span class="cm">/**</span>
+<span class="cm">           Padding. These bytes are intended for use by protocols, which want to prepend</span>
+<span class="cm">           data before sending it, without having to copy/reorganize the entire message.</span>
+<span class="cm">        */</span>
+        <span class="kt">uint8_t</span> <span class="n">padding</span><span class="p">[</span><span class="n">CSP_PADDING_BYTES</span><span class="p">];</span>
+        <span class="cm">/** Data length. Must be just before CSP ID.*/</span>
+	<span class="kt">uint16_t</span> <span class="n">length</span><span class="p">;</span>
+	<span class="cm">/** CSP id. Must be just before data, as it allows the interface to id and data</span>
+<span class="cm">            in a single operation. */</span>
+	<span class="n">csp_id_t</span> <span class="n">id</span><span class="p">;</span>
+	<span class="cm">/**</span>
+<span class="cm">           Data part of packet.</span>
+<span class="cm">           When using the csp_buffer API, the size of the data part is set by</span>
+<span class="cm">           csp_buffer_init(), and can later be accessed by csp_buffer_data_size()</span>
+<span class="cm">        */</span>
+	<span class="k">union</span> <span class="p">{</span>
+		<span class="cm">/** Access data as uint8_t. */</span>
+		<span class="kt">uint8_t</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+		<span class="cm">/** Access data as uint16_t */</span>
+		<span class="kt">uint16_t</span> <span class="n">data16</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+		<span class="cm">/** Access data as uint32_t */</span>
+		<span class="kt">uint32_t</span> <span class="n">data32</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+	<span class="p">};</span>
+<span class="p">}</span> <span class="n">csp_packet_t</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>A basic concept in the buffer system is called Zero-Copy. This means that from userspace to the kernel-driver, the buffer is never copied from one buffer to another. This is a big deal for a small microprocessor, where a call to <cite>memcpy()</cite> can be very expensive.
+This is achieved by a number of <cite>padding</cite> bytes in the buffer, allowing for a header to be prepended at the lower layers without copying the actual payload. This also means that there is a strict contract between the layers, which data can be modified and where.</p>
+<p>The padding bytes are used by the I2C interface, where the <cite>csp_packet_t</cite> will be casted to a <cite>csp_i2c_frame_t</cite>, when the interface calls the driver Tx function <cite>csp_i2c_driver_tx_t</cite>:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm">   I2C frame.</span>
+<span class="cm">   This struct fits on top of a #csp_packet_t, removing the need for copying data.</span>
+<span class="cm">*/</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">i2c_frame_s</span> <span class="p">{</span>
+    <span class="c1">//! Not used  (-&gt; csp_packet_t.padding)</span>
+    <span class="kt">uint8_t</span> <span class="n">padding</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+    <span class="c1">//! Cleared before Tx  (-&gt; csp_packet_t.padding)</span>
+    <span class="kt">uint8_t</span> <span class="n">retries</span><span class="p">;</span>
+    <span class="c1">//! Not used  (-&gt; csp_packet_t.padding)</span>
+    <span class="kt">uint32_t</span> <span class="n">reserved</span><span class="p">;</span>
+    <span class="c1">//! Destination address  (-&gt; csp_packet_t.padding)</span>
+    <span class="kt">uint8_t</span> <span class="n">dest</span><span class="p">;</span>
+    <span class="c1">//! Cleared before Tx  (-&gt; csp_packet_t.padding)</span>
+    <span class="kt">uint8_t</span> <span class="n">len_rx</span><span class="p">;</span>
+    <span class="c1">//! Length of \a data part  (-&gt; csp_packet_t.length)</span>
+    <span class="kt">uint16_t</span> <span class="n">len</span><span class="p">;</span>
+    <span class="c1">//! CSP id + data  (-&gt; csp_packet_t.id)</span>
+    <span class="kt">uint8_t</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">}</span> <span class="n">csp_i2c_frame_t</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="connection">
+<h2>3.2.3.4.2. Connection<a class="headerlink" href="#connection" title="Permalink to this headline">¶</a></h2>
+<p>CSP supports both connection-less and connection-oriented connections. See more about protocols in <a class="reference internal" href="protocolstack.html#layer4"><span class="std std-ref">Layer 4: Transport Layer</span></a>.</p>
+<p>During initialization libcsp allocates the configured number of connections. The required number of connections depends on the application. Here is a list functions, that will allocate a connection from the connection pool:</p>
+<blockquote>
+<div><ul class="simple">
+<li>client connection, call to <cite>csp_connect()</cite></li>
+<li>server socket for listening <cite>csp_socket()</cite></li>
+<li>server accepting an incmoing connection <cite>csp_accept()</cite></li>
+</ul>
+</div></blockquote>
+<p>An applications receive queue is located on the connection and is also allocated once during initialization. The length of the queue is the same for all queues, and specified in the configuration.</p>
+</div>
+<div class="section" id="send">
+<h2>3.2.3.4.3. Send<a class="headerlink" href="#send" title="Permalink to this headline">¶</a></h2>
+<p>The data flow from the application to the driver, can basically be broken down into following steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>if using connection-oriented communication, establish a connection&gt; <cite>csp_connect()</cite>, <cite>csp_accept()</cite></li>
+<li>get packet from the buffer pool: <cite>csp_buffer_get()</cite></li>
+<li>add payload data to the packet</li>
+<li>send packet, e.g. <cite>csp_send()</cite>, <cite>csp_sendto()</cite></li>
+<li>CSP looks up the destination route, using the routing table, and calls <cite>nexthop()</cite> on the resolved interface.</li>
+<li>The interface (in this case the CAN interface), splits the packet into a number of CAN frames (8 bytes) and forwards them to the driver.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="receive">
+<h2>3.2.3.4.4. Receive<a class="headerlink" href="#receive" title="Permalink to this headline">¶</a></h2>
+<p>The data flow from the driver to the application, can basically be broken down into following steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>the driver layer forwards the raw data frames to the interface, in this case CAN frames</li>
+<li>the interface will aquire a free buffer (e.g. <cite>csp_buffer_get_isr()</cite>) for assembling the CAN frames into a complete packet</li>
+<li>once the interface has successfully assembled a packet, the packet is queued for routing - primarily to decouple the interface, e.g. if the interfacec/drivers uses interrupt (ISR).</li>
+<li>the router picks up the packet from the incoming queue and routes it on - this can either to a local destination, or another interface.</li>
+<li>the application waits for new packets at its Rx queue, by calling <cite>csp_read()</cite> or <cite>csp_accept</cite> in case it is a server socket.</li>
+<li>the application can now process the packet, and either send it using e.g. <cite>csp_send()</cite>, or free the packet using <cite>csp_buffer_free()</cite>.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="routing-table">
+<h2>3.2.3.4.5. Routing table<a class="headerlink" href="#routing-table" title="Permalink to this headline">¶</a></h2>
+<p>When a packet is routed, the destination address is looked up in the routing table, which results in a <cite>csp_route_t</cite> record. The record contains the inteface (<cite>csp_iface_t</cite>) the packet is to be send on, and an optional <cite>via</cite> address. The <cite>via</cite> address is used, when the sender cannot direcly reach the receiver on one of its connected networks, e.g. sending a packet from the satellite to the ground - the radio will be the <cite>via</cite> address.</p>
+<p>CSP comes with 2 routing table implementations (selected at compile time).</p>
+<blockquote>
+<div><ul class="simple">
+<li>static: supports a one-to-one mapping, meaning routes must be configured per destination address or a single <cite>default</cite> address. The <cite>default</cite> address is used, in case there are no routes set for the specific destination address.
+The <cite>static</cite> routing table has the fastest lookup, but requires more setup.</li>
+<li>cidr (Classless Inter-Domain Routing): supports a one-to-many mapping, meaning routes can be configued for a range of destianation addresses.
+The <cite>cidr</cite> is a bit slower for lookup, but simple to setup.</li>
+</ul>
+</div></blockquote>
+<p>Routes can be configured using text strings in the format:</p>
+<blockquote>
+<div><p>&lt;address&gt;[/mask] &lt;interface name&gt; [via]</p>
+<ul class="simple">
+<li>address: is the destination address, the routing table will match it against the CSP header destination.</li>
+<li>mask (optional): determines how many MSB bits of address are to be matched. mask = 1 will only match the MSB bit, mask = 2 will match 2 MSB bits. Mask values different from 0 and 5, is only supported by the cidr rtable.</li>
+<li>interface name: name of the interface to route the packet on</li>
+<li>via (optional) address: if different from 255, route the packet to the <cite>via</cite> address, instead of the address in the CSP header.</li>
+</ul>
+</div></blockquote>
+<p>Here are some examples:</p>
+<blockquote>
+<div><ul class="simple">
+<li>“10 I2C” route destination address 10 to the “I2C” interface and send it to address 10 (no <cite>via</cite>).</li>
+<li>“10 I2C 30” route destination address 10 to the “I2C” interface and send it to address 30 (<cite>via</cite>). The original destination address 10 is not changed in the CSP header of the packet.</li>
+<li>“16/1 CAN 4” (CIDR only) route all destinations addresses 16-31 to address 4 on the CAN interface.</li>
+<li>“0/0 CAN” default route, if no other matching route is found, route packet onto the CAN interface.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="interface">
+<h2>3.2.3.4.6. Interface<a class="headerlink" href="#interface" title="Permalink to this headline">¶</a></h2>
+<p>The interface typically implements <a class="reference internal" href="protocolstack.html#layer2"><span class="std std-ref">Layer 2: MAC interfaces</span></a>, and uses drivers from <a class="reference internal" href="protocolstack.html#layer1"><span class="std std-ref">Layer 1: Drivers</span></a> to send/receive data.
+The interface is a generic struct, with no knowledge of any specific interface , protocol or driver:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm">   CSP interface.</span>
+<span class="cm">*/</span>
+<span class="k">struct</span> <span class="n">csp_iface_s</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>          <span class="c1">//!&lt; Name, max compare length is #CSP_IFLIST_NAME_MAX</span>
+    <span class="kt">void</span> <span class="o">*</span> <span class="n">interface_data</span><span class="p">;</span>     <span class="c1">//!&lt; Interface data, only known/used by the interface layer, e.g. state information.</span>
+    <span class="kt">void</span> <span class="o">*</span> <span class="n">driver_data</span><span class="p">;</span>        <span class="c1">//!&lt; Driver data, only known/used by the driver layer, e.g. device/channel references.</span>
+    <span class="n">nexthop_t</span> <span class="n">nexthop</span><span class="p">;</span>         <span class="c1">//!&lt; Next hop (Tx) function</span>
+    <span class="kt">uint16_t</span> <span class="n">mtu</span><span class="p">;</span>              <span class="c1">//!&lt; Maximum Transmission Unit of interface</span>
+    <span class="kt">uint8_t</span> <span class="n">split_horizon_off</span><span class="p">;</span> <span class="c1">//!&lt; Disable the route-loop prevention</span>
+    <span class="kt">uint32_t</span> <span class="n">tx</span><span class="p">;</span>               <span class="c1">//!&lt; Successfully transmitted packets</span>
+    <span class="kt">uint32_t</span> <span class="n">rx</span><span class="p">;</span>               <span class="c1">//!&lt; Successfully received packets</span>
+    <span class="kt">uint32_t</span> <span class="n">tx_error</span><span class="p">;</span>         <span class="c1">//!&lt; Transmit errors (packets)</span>
+    <span class="kt">uint32_t</span> <span class="n">rx_error</span><span class="p">;</span>         <span class="c1">//!&lt; Receive errors, e.g. too large message</span>
+    <span class="kt">uint32_t</span> <span class="n">drop</span><span class="p">;</span>             <span class="c1">//!&lt; Dropped packets</span>
+    <span class="kt">uint32_t</span> <span class="n">autherr</span><span class="p">;</span>          <span class="c1">//!&lt; Authentication errors (packets)</span>
+    <span class="kt">uint32_t</span> <span class="n">frame</span><span class="p">;</span>            <span class="c1">//!&lt; Frame format errors (packets)</span>
+    <span class="kt">uint32_t</span> <span class="n">txbytes</span><span class="p">;</span>          <span class="c1">//!&lt; Transmitted bytes</span>
+    <span class="kt">uint32_t</span> <span class="n">rxbytes</span><span class="p">;</span>          <span class="c1">//!&lt; Received bytes</span>
+    <span class="kt">uint32_t</span> <span class="n">irq</span><span class="p">;</span>              <span class="c1">//!&lt; Interrupts</span>
+    <span class="k">struct</span> <span class="n">csp_iface_s</span> <span class="o">*</span><span class="n">next</span><span class="p">;</span>  <span class="c1">//!&lt; Internal, interfaces are stored in a linked list</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>If an interface implementation needs to store data, e.g. state information (KISS), it can use the pointer <cite>interface_data</cite> to reference any data structure needed. The driver implementation can use the pointer <cite>driver_data</cite> for storing data, e.g. device number.</p>
+<p>See function <cite>csp_can_socketcan_open_and_add_interface()</cite> in <cite>src/drivers/can/can_socketcan.c</cite> for an example of how to implement a CAN driver and hooking it into CSP, using the CSP standard CAN interface.</p>
+<div class="section" id="id1">
+<h3>3.2.3.4.6.1. Send<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>When CSP needs to send a packet, it calls <cite>nexthop</cite> on the interface returned by route lookup.
+If the interface succeeds in sending the packet, it must free the packet.
+In case of failure, the packet must not be freed by the interface. The original idea was, that the packet could be retried later on, without having to re-create the packet again. However, the current implementation does not yet fully support this as some interfaces modifies header (endian conversion) or data (adding CRC32).</p>
+</div>
+<div class="section" id="id2">
+<h3>3.2.3.4.6.2. Receive<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>When receiving data, the driver calls into the interface with the received data, e.g. <cite>csp_can_rx()</cite>. The interface will convert/copy the data into a packet (e.g. by assembling all CAN frames). Once a complete packet is received, the packet is  queued for later CSP processing, by calling <cite>csp_qfifo_write()</cite>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="memory.html" class="btn btn-neutral float-right" title="3.2.3.5. How CSP uses memory" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="structure.html" class="btn btn-neutral" title="3.2.3.3. Structure" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 GomSpace A/S..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'2.7.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

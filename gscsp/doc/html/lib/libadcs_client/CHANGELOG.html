@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.1.2.1. ADCS (libadcs_client) &mdash; Product Interface Application 2.7.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Product Interface Application 2.7.1 documentation" href="../../index.html"/>
+        <link rel="up" title="5.1.2. Product Interfaces" href="../../doc/appendix/changelogs_product_interfaces.html"/>
+        <link rel="next" title="5.1.2.2. NanoCam C1U (nanocam2_client)" href="../nanocam2_client/CHANGELOG.html"/>
+        <link rel="prev" title="5.1.2. Product Interfaces" href="../../doc/appendix/changelogs_product_interfaces.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../doc/index.html" class="icon icon-home"> Product Interface Application
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../doc/csp-client.html">1. Product Interface Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/product_interfaces.html">2. Product Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/libraries.html">3. Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../doc/tools.html">4. Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../doc/appendix/appendix.html">5. Appendix</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../doc/appendix/changelogs.html">5.1. Software Changelogs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../CHANGELOG.html">5.1.1. Product Interface Application</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../doc/appendix/changelogs_product_interfaces.html">5.1.2. Product Interfaces</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">5.1.2.1. ADCS (libadcs_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../nanocam2_client/CHANGELOG.html">5.1.2.2. NanoCam C1U (nanocam2_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../gatoss-uc_client/CHANGELOG.html">5.1.2.3. NanoCom ADS-B Receiver (gatoss-uc_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../nanocom-ax_client/CHANGELOG.html">5.1.2.4. NanoCom AX100 (nanocom-ax_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../nanopower-bpx_client/CHANGELOG.html">5.1.2.5. NanoPower BPX (nanopower-bpx_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../nanopower_client/CHANGELOG.html">5.1.2.6. NanoPower P31u (nanopower_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../p60-acu_client/CHANGELOG.html">5.1.2.7. NanoPower P60 ACU 200 (p60-acu_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../p60-dock_client/CHANGELOG.html">5.1.2.8. NanoPower P60 Dock (p60-dock_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../p60-pdu_client/CHANGELOG.html">5.1.2.9. NanoPower P60 PDU (p60-pdu_client)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../libp60_client/CHANGELOG.html">5.1.2.10. NanoPower P60 client (libp60_client)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/appendix/changelogs_libraries.html">5.1.3. Libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../doc/appendix/changelogs_tools.html">5.1.4. Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../doc/appendix/api.html">5.2. API Documentation</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../doc/index.html">Product Interface Application</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../doc/index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../doc/appendix/appendix.html">5. Appendix</a> &raquo;</li>
+      
+          <li><a href="../../doc/appendix/changelogs.html">5.1. Software Changelogs</a> &raquo;</li>
+      
+          <li><a href="../../doc/appendix/changelogs_product_interfaces.html">5.1.2. Product Interfaces</a> &raquo;</li>
+      
+    <li>5.1.2.1. ADCS (libadcs_client)</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="adcs-libadcs-client">
+<h1>5.1.2.1. ADCS (libadcs_client)<a class="headerlink" href="#adcs-libadcs-client" title="Permalink to this headline">¶</a></h1>
+<p><strong>6.0.2 (2020-03-26)</strong></p>
+<ul class="simple">
+<li>Improvement: Updated dependencies</li>
+<li>Bug: fixed array size in adcs_telem3_152.json for UKF from 15 to 14.</li>
+</ul>
+<p><strong>6.0.1 (2019-12-12)</strong></p>
+<ul class="simple">
+<li>Improvement: Reintroduced stylecheck</li>
+</ul>
+<p><strong>6.0.0 (2019-11-01)</strong></p>
+<ul class="simple">
+<li>Breaking: Added new parameters for Startracker implementation in the UKF</li>
+</ul>
+<p><strong>5.1.0 (2019-03-28)</strong></p>
+<ul class="simple">
+<li>Improvement: Added Variable Frequency (VARF) as a parameter (en_gps_varf)</li>
+<li>Improvement: Split pwm_deadtime into mtq_decay_t and mag_sample_t. This allows for tuning based on the placement and number of magnetometers.</li>
+</ul>
+<p><strong>5.0.3 (2019-03-01)</strong></p>
+<ul class="simple">
+<li>Bug: Torquerduty was not reported in body frame</li>
+</ul>
+<p><strong>5.0.2 (2019-02-21)</strong></p>
+<ul class="simple">
+<li>Improvement: Updated documentation.</li>
+</ul>
+<p><strong>5.0.1 (2019-02-07)</strong></p>
+<ul class="simple">
+<li>Improvement: Updated json telemetry tables to match acutal tables</li>
+</ul>
+<p><strong>5.0.0 (2019-02-01)</strong></p>
+<ul class="simple">
+<li>Breaking: Removed STR from table sensors_common and added its own</li>
+<li>Breaking: Updated GPS parameters in sensors_common</li>
+<li>Breaking: Updated telemetry table1 layout</li>
+<li>Breaking: Moved css_{initmax, absmax, th} the the sensor_css table, with the names max_init, abs_max and threshold</li>
+<li>Breaking: Moved tleline1, tleline2 and teme2eci from gnc_ads to gnc_common</li>
+<li>Feature: Added sun pointing mode</li>
+<li>Feature: Added orbit pointing mode</li>
+<li>Feature: Added handle to control VARF</li>
+</ul>
+<p><strong>4.0.0 (2018-01-04)</strong></p>
+<ul class="simple">
+<li>Improvement: Updated documentation for libadcs 4.0.0</li>
+</ul>
+<p><strong>3.3.1 (2018-12-20)</strong></p>
+<ul class="simple">
+<li>Improvement: Updated documentation.</li>
+</ul>
+<p><strong>3.3.0 (2018-11-22)</strong></p>
+<ul class="simple">
+<li>Breaking: Updated the reaction wheel parameter table. It now assumes all wheels are the same type.</li>
+<li>Breaking: Created a new table to represent the on-board (internal) sensors of the A3200 (mpu3300 and hmc5843)</li>
+<li>Bug: Updated the GOSH command <cite>gps ascii &lt;timout&gt; &lt;cmd&gt;</cite> so it can’t crash the A3200 on garbage input</li>
+</ul>
+<p><strong>3.2.2 (2018-09-24)</strong></p>
+<ul class="simple">
+<li>Improvement: Separated solar panel control out to its own repository</li>
+<li>Improvement: Added a <cite>type</cite> field to the CSS parameter table</li>
+<li>Bug: Fixed an error where reading the <cite>suns_semp</cite> parameter would return garbage data</li>
+</ul>
+<p><strong>3.2.0 (2018-09-19)</strong></p>
+<ul class="simple">
+<li>Feature: Initial SDK version</li>
+</ul>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../nanocam2_client/CHANGELOG.html" class="btn btn-neutral float-right" title="5.1.2.2. NanoCam C1U (nanocam2_client)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../doc/appendix/changelogs_product_interfaces.html" class="btn btn-neutral" title="5.1.2. Product Interfaces" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 GomSpace A/S..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.7.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

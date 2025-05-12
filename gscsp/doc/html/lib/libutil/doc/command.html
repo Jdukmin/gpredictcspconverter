@@ -1,0 +1,446 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.11.5. Command (GOSH) &mdash; Product Interface Application 2.7.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Product Interface Application 2.7.1 documentation" href="../../../index.html"/>
+        <link rel="up" title="3.11. Utility (libutil)" href="libutil.html"/>
+        <link rel="next" title="3.11.6. Commands" href="commands.html"/>
+        <link rel="prev" title="3.11.4. Software Watchdog" href="watchdog.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../doc/index.html" class="icon icon-home"> Product Interface Application
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/csp-client.html">1. Product Interface Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/product_interfaces.html">2. Product Interfaces</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../doc/libraries.html">3. Libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../libaardvark/doc/libaardvark.html">3.1. Aardvark (libaardvark)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libgscsp/doc/libgscsp.html">3.2. GomSpace CSP (libgscsp)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libfp_client/doc/libfp_client.html">3.3. Flight Planner (libfp_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libftp_client/doc/libftp_client.html">3.4. FTP (libftp_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libgosh_client/doc/libgosh_client.html">3.5. GOSH (libgosh_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libgssb_client/doc/libgssb_client.html">3.6. GomSpace Sensor Bus (libgssb_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libhk_client/doc/libhk_client.html">3.7. Housekeeping (libhk_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libnanopb/doc/libnanopb.html">3.8. Nano Protobuf (libnanopb)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libparam_client/doc/libparam_client.html">3.9. Parameter System (libparam_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../librgosh_client/doc/librgosh_client.html">3.10. Remote GOSH (librgosh_client)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="libutil.html">3.11. Utility (libutil)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">3.11.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software.html">3.11.2. Software concepts and terminology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html">3.11.3. Logging framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="watchdog.html">3.11.4. Software Watchdog</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.11.5. Command (GOSH)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#console">3.11.5.1. Console</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-parser">3.11.5.2. Command Parser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#defining-commands">3.11.5.3. Defining commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linker-optimization">3.11.5.4. Linker optimization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#command-handler">3.11.5.5. Command handler</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="commands.html">3.11.6. Commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/tools.html">4. Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/appendix/appendix.html">5. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../doc/index.html">Product Interface Application</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../doc/index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../doc/libraries.html">3. Libraries</a> &raquo;</li>
+      
+          <li><a href="libutil.html">3.11. Utility (libutil)</a> &raquo;</li>
+      
+    <li>3.11.5. Command (GOSH)</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="command-gosh">
+<h1>3.11.5. Command (GOSH)<a class="headerlink" href="#command-gosh" title="Permalink to this headline">¶</a></h1>
+<p>The <cite>command</cite> interface provides a simple text based interface, mapping textual commands (i.e. command and arguments) to a handler (C function).</p>
+<p>In daily terms, the command interace is often refered to as GOSH (GOmspace SHell). GOSH is a combination of the <a class="reference internal" href="#libutil-console"><span class="std std-ref">Console</span></a> and the command internface. But commands can also be executed from other sub-systems such as g-script, Flight Planner, Health System.</p>
+<p>The command/GOSH interface is normally available on all GomSpace products, and primarily used for configuration and debugging.</p>
+<div class="section" id="console">
+<span id="libutil-console"></span><h2>3.11.5.1. Console<a class="headerlink" href="#console" title="Permalink to this headline">¶</a></h2>
+<p>The console interface reads from an input stream (e.g. stdin), and forwards the input the command interface for execution. In this case, output from the command execution will be written to an output stream (e.g. stdout). stdin/stdou is typically an UART port on the product.</p>
+<p>Any user who have tried a text-interface before, should feel right at home.</p>
+<p>The console is supported on Linux and FreeRTOS.
+The console assumes a standard VT102 terminal emulator, but provides a few fixes for the quirks in ‘minicom’ (application).
+The console prompt is controlled by the application. Here is an example prompt:</p>
+<p>Thie console behaves like a normal unix shell, where entire commands (and arguments) are written as strings and executed when &lt;enter&gt; is pushed.</p>
+<p>The console uses a traditional keyboard shortcut layout for navigating history, line editing and includes tab completion. The complete list of command shortcuts are:</p>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-number">Table 3.4 </span><span class="caption-text">console shortcut keys</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Key</strong></th>
+<th class="head"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&lt;ctrl&gt;&lt;a&gt;</td>
+<td>go to beginning of line</td>
+</tr>
+<tr class="row-odd"><td>&lt;ctrl&gt;&lt;b&gt; or &lt;left&gt;</td>
+<td>go back a char</td>
+</tr>
+<tr class="row-even"><td>&lt;ctrl&gt;&lt;d&gt;</td>
+<td>delete char to the right of cursor</td>
+</tr>
+<tr class="row-odd"><td>&lt;ctrl&gt;&lt;e&gt;</td>
+<td>go to end of line</td>
+</tr>
+<tr class="row-even"><td>&lt;ctrl&gt;&lt;f&gt; or &lt;right&gt;</td>
+<td>go forward a char</td>
+</tr>
+<tr class="row-odd"><td>&lt;ctrl&gt;&lt;h&gt; or &lt;backspace&gt;</td>
+<td>backspace</td>
+</tr>
+<tr class="row-even"><td>&lt;ctrl&gt;&lt;k&gt;</td>
+<td>kill rest of line line</td>
+</tr>
+<tr class="row-odd"><td>&lt;ctrl&gt;&lt;l&gt;</td>
+<td>clear terminal</td>
+</tr>
+<tr class="row-even"><td>&lt;ctrl&gt;&lt;n&gt; or &lt;up&gt;</td>
+<td>next in history</td>
+</tr>
+<tr class="row-odd"><td>&lt;ctrl&gt;&lt;p&gt; or &lt;dn&gt;</td>
+<td>prev in history</td>
+</tr>
+<tr class="row-even"><td>&lt;ctrl&gt;&lt;t&gt;</td>
+<td>transpose chars</td>
+</tr>
+<tr class="row-odd"><td>&lt;ctrl&gt;&lt;u&gt;</td>
+<td>kill line from beginning</td>
+</tr>
+<tr class="row-even"><td>&lt;enter&gt;</td>
+<td>execute command</td>
+</tr>
+<tr class="row-odd"><td>&lt;tab&gt;</td>
+<td>try and complete command</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="command-parser">
+<h2>3.11.5.2. Command Parser<a class="headerlink" href="#command-parser" title="Permalink to this headline">¶</a></h2>
+<p>The command parser splits a text string into a command and arguments, using space as delimter. It searches for the first word in the list of root-commands. Commands can be divided into two groups:</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>root commands</cite> are at the top of the hierachy and can be seen by typing help, or pressing &lt;tab&gt; on an empty prompt.</li>
+<li><cite>sub commands</cite> are located below <cite>root commands</cite> or other <cite>sub commands</cite>.</li>
+</ul>
+</div></blockquote>
+<p><cite>root commands</cite> are usually more a grouping, than an actual command. The framework comes with a set of ‘built in commands:</p>
+<div class="highlight-none"><div class="highlight"><pre>util.app # help
+  help                Show help
+  sleep               Sleep mS
+  watch               Run commands at intervals (abort on key)
+  watch_check         Run commands at intervals (abort on key or failure)
+  clock               Get/set system clock
+  exit                Exit program
+  log                 Log system
+  debug               Set log group mask: e|w|n|i|d|t|stand|all|off
+</pre></div>
+</div>
+<p><cite>vmem</cite> is an example of a command group:</p>
+<div class="highlight-none"><div class="highlight"><pre>util.app # vmem
+Virtual memory
+  read                Read from virtual memory
+  write               Write to virtual memory
+  lock                Lock the virtual memory
+  unlock              Unlock the virtual memory
+  list                Show virtual memory mappings
+  info                Show virtual memory mappings + info
+</pre></div>
+</div>
+<p>Commands that does not have sub-command(s), has an associated <a class="reference internal" href="#libutil-command-handler"><span class="std std-ref">Command handler</span></a>. A handler is a function that will be called with the specified arguments, when the command is executed. It also has a help and usage text.
+The help text is shown in the help output as above, and the usage text is shown when completing the command using &lt;tab&gt;:</p>
+<div class="highlight-none"><div class="highlight"><pre>util.app # vmem read
+Read from virtual memory
+usage: read &lt;addr&gt; &lt;length&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="defining-commands">
+<span id="libutil-define-command"></span><h2>3.11.5.3. Defining commands<a class="headerlink" href="#defining-commands" title="Permalink to this headline">¶</a></h2>
+<p>In order to define a new <cite>root command</cite>, define a command structure in one of your c-files like this:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">static</span> <span class="k">const</span> <span class="n">gs_command_t</span> <span class="n">GS_COMMAND_ROOT</span> <span class="n">root_commands</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">{</span>
+        <span class="p">.</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;help&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">help</span><span class="o">=</span><span class="s">&quot;Show help&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">usage</span><span class="o">=</span><span class="s">&quot;[command]...&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">optional_args</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">handler</span><span class="o">=</span><span class="n">gs_command_cmd_help_handler</span><span class="p">,</span>
+    <span class="p">},</span>
+</pre></div>
+</div>
+<p>The next example shows how to add sub-commands to the ‘vmem’ command (<a class="reference internal" href="commands.html#table-gs-vmem-commands"><span class="std std-ref">Command Table ‘vmem’</span></a>):</p>
+<p>First the sub-commands are defined:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">static</span> <span class="k">const</span> <span class="n">gs_command_t</span> <span class="n">GS_COMMAND_SUB</span> <span class="n">vmem_commands</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">{</span>
+        <span class="p">.</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;read&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">help</span><span class="o">=</span><span class="s">&quot;Read from virtual memory&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">usage</span><span class="o">=</span><span class="s">&quot;&lt;addr&gt; &lt;length&gt;&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">mandatory_args</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">handler</span><span class="o">=</span><span class="n">gs_vmem_cmd_vmem_read_handler</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="p">.</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;write&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">help</span><span class="o">=</span><span class="s">&quot;Write to virtual memory&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">usage</span><span class="o">=</span><span class="s">&quot;&lt;addr&gt; &lt;data&gt;&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">mandatory_args</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">handler</span><span class="o">=</span><span class="n">gs_vmem_cmd_vmem_write_handler</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="p">.</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;lock&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">help</span><span class="o">=</span><span class="s">&quot;Lock the virtual memory&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">usage</span><span class="o">=</span><span class="s">&quot;&lt;entry&gt;&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">mandatory_args</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">handler</span><span class="o">=</span><span class="n">gs_vmem_cmd_vmem_lock_handler</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="p">.</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;unlock&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">help</span><span class="o">=</span><span class="s">&quot;Unlock the virtual memory&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">usage</span><span class="o">=</span><span class="s">&quot;&lt;entry&gt;&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">mandatory_args</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">handler</span><span class="o">=</span><span class="n">gs_vmem_cmd_vmem_unlock_handler</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="p">.</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;list&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">help</span><span class="o">=</span><span class="s">&quot;Show virtual memory mappings&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">mandatory_args</span><span class="o">=</span><span class="n">GS_COMMAND_NO_ARGS</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">handler</span><span class="o">=</span><span class="n">gs_vmem_cmd_vmem_list_handler</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="p">.</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;info&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">help</span><span class="o">=</span><span class="s">&quot;Show virtual memory mappings + info&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">mandatory_args</span><span class="o">=</span><span class="n">GS_COMMAND_NO_ARGS</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">handler</span><span class="o">=</span><span class="n">gs_vmem_cmd_vmem_info_handler</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Secondly the sub-commands are placed under the root command ‘vmem’:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">static</span> <span class="k">const</span> <span class="n">gs_command_t</span> <span class="n">GS_COMMAND_ROOT</span> <span class="n">root_commands</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">{</span>
+        <span class="p">.</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;vmem&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">help</span><span class="o">=</span><span class="s">&quot;Virtual memory&quot;</span><span class="p">,</span>
+        <span class="p">.</span><span class="n">chain</span><span class="o">=</span><span class="n">GS_COMMAND_INIT_CHAIN</span><span class="p">(</span><span class="n">vmem_commands</span><span class="p">),</span>
+    <span class="p">},</span>
+</pre></div>
+</div>
+<p>Remember to include <cite>&lt;gs/util/gosh/command.h&gt;</cite> to get the gs_command_t declaration.</p>
+</div>
+<div class="section" id="linker-optimization">
+<h2>3.11.5.4. Linker optimization<a class="headerlink" href="#linker-optimization" title="Permalink to this headline">¶</a></h2>
+<p>Instead of building the list of commands run-time using a linked list or similar data structure, the linker can group all root-commands
+in the same section. This is done by using a special GCC-attribute to pack all command struct’s into the same memory area. In other words, the
+entire command list is always initialised as default and therefore requires zero time to initialize during startup. For this to work, all
+root-commands must be tagged with ‘GS_COMMAND_ROOT’, as shown in <a class="reference internal" href="#libutil-define-command"><span class="std std-ref">Defining commands</span></a>.</p>
+<p>In order to prevent the linker from removing the command object (optimization), it is necessary to register the command by calling <cite>GS_COMMAND_REGISTER(…)</cite>. Calling register on a already regsitered command is simply ignored.</p>
+</div>
+<div class="section" id="command-handler">
+<span id="libutil-command-handler"></span><h2>3.11.5.5. Command handler<a class="headerlink" href="#command-handler" title="Permalink to this headline">¶</a></h2>
+<p>The handler function is a simple function, taking a single argument containing the command’s <cite>arguments</cite> in a standard argc/argv notation:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">gs_command_cmd_sleep_handler</span><span class="p">(</span><span class="n">gs_command_context_t</span> <span class="o">*</span> <span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">uint32_t</span> <span class="n">sleep_ms</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">gs_string_to_uint32</span><span class="p">(</span><span class="n">context</span><span class="o">-&gt;</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">sleep_ms</span><span class="p">)</span> <span class="o">!=</span> <span class="n">GS_OK</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">GS_ERROR_ARG</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">gs_time_sleep_ms</span><span class="p">(</span><span class="n">sleep_ms</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">GS_OK</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The return code is expected to be a <cite>gs_error_t</cite> type, which allows the framework to use ‘gs_error_string()’ to provide more verbose feedback to
+the user. But in practice, returning 0 means <cite>success</cite> and any other value means <cite>failure</cite>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="commands.html" class="btn btn-neutral float-right" title="3.11.6. Commands" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="watchdog.html" class="btn btn-neutral" title="3.11.4. Software Watchdog" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 GomSpace A/S..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.7.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

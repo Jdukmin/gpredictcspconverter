@@ -1,0 +1,443 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.11.6. Commands &mdash; Product Interface Application 2.7.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Product Interface Application 2.7.1 documentation" href="../../../index.html"/>
+        <link rel="up" title="3.11. Utility (libutil)" href="libutil.html"/>
+        <link rel="next" title="4. Tools" href="../../../doc/tools.html"/>
+        <link rel="prev" title="3.11.5. Command (GOSH)" href="command.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../doc/index.html" class="icon icon-home"> Product Interface Application
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.7.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/csp-client.html">1. Product Interface Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/product_interfaces.html">2. Product Interfaces</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../doc/libraries.html">3. Libraries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../libaardvark/doc/libaardvark.html">3.1. Aardvark (libaardvark)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libgscsp/doc/libgscsp.html">3.2. GomSpace CSP (libgscsp)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libfp_client/doc/libfp_client.html">3.3. Flight Planner (libfp_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libftp_client/doc/libftp_client.html">3.4. FTP (libftp_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libgosh_client/doc/libgosh_client.html">3.5. GOSH (libgosh_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libgssb_client/doc/libgssb_client.html">3.6. GomSpace Sensor Bus (libgssb_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libhk_client/doc/libhk_client.html">3.7. Housekeeping (libhk_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libnanopb/doc/libnanopb.html">3.8. Nano Protobuf (libnanopb)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../libparam_client/doc/libparam_client.html">3.9. Parameter System (libparam_client)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../librgosh_client/doc/librgosh_client.html">3.10. Remote GOSH (librgosh_client)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="libutil.html">3.11. Utility (libutil)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">3.11.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="software.html">3.11.2. Software concepts and terminology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html">3.11.3. Logging framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="watchdog.html">3.11.4. Software Watchdog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="command.html">3.11.5. Command (GOSH)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.11.6. Commands</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#miscellaneous-commands">3.11.6.1. Miscellaneous commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#log">3.11.6.2. log</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vmem">3.11.6.3. vmem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/tools.html">4. Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/appendix/appendix.html">5. Appendix</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../doc/index.html">Product Interface Application</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../doc/index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../doc/libraries.html">3. Libraries</a> &raquo;</li>
+      
+          <li><a href="libutil.html">3.11. Utility (libutil)</a> &raquo;</li>
+      
+    <li>3.11.6. Commands</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="commands">
+<span id="libutil-commands"></span><h1>3.11.6. Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="miscellaneous-commands">
+<h2>3.11.6.1. Miscellaneous commands<a class="headerlink" href="#miscellaneous-commands" title="Permalink to this headline">¶</a></h2>
+<p>A set of miscellaneous (default) commands provides basic help and simple execution of commands.</p>
+<span id="table-gs-command-commands"></span><table border="1" class="longtable docutils" id="id1">
+<caption><span class="caption-number">Table 3.5 </span><span class="caption-text">Command Table ‘command’</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Command</th>
+<th class="head">&#160;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first last" id="cmd-gs-command-help">help</p>
+</td>
+<td><p class="first">Show help.</p>
+<p>Arguments:</p>
+<p class="last"><code class="docutils literal"><span class="pre">[command]</span></code>: Show command help.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="cmd-gs-command-sleep">sleep</p>
+</td>
+<td><p class="first">Sleep mS.</p>
+<p>Arguments:</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;mS&gt;</span></code>: Number of mS to sleep.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last" id="cmd-gs-command-watch">watch</p>
+</td>
+<td><p class="first">Run commands at intervals (abort on key).</p>
+<p>Arguments:</p>
+<p><code class="docutils literal"><span class="pre">&lt;interval</span> <span class="pre">mS&gt;</span></code>: Interval between executions</p>
+<p><code class="docutils literal"><span class="pre">&lt;command&gt;</span></code>: Command to execute.</p>
+<p class="last"><code class="docutils literal"><span class="pre">[arg]</span></code>: Command argument(s)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="cmd-gs-command-watch-check">watch_check</p>
+</td>
+<td><p class="first">Run commands at intervals (abort on key/failure).</p>
+<p>Arguments:</p>
+<p><code class="docutils literal"><span class="pre">&lt;interval</span> <span class="pre">mS&gt;</span></code>: Interval between executions</p>
+<p><code class="docutils literal"><span class="pre">&lt;command&gt;</span></code>: Command to execute.</p>
+<p class="last"><code class="docutils literal"><span class="pre">[arg]</span></code>: Command argument(s)</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last" id="cmd-gs-command-clock">clock</p>
+</td>
+<td><p class="first">Get/set system clock. Time is UTC.</p>
+<p>Arguments:</p>
+<p class="last"><code class="docutils literal"><span class="pre">[&lt;sec.nsec&gt;</span> <span class="pre">|</span> <span class="pre">&lt;YYYY-MM-DDTHH:MM:SSZ&gt;]</span></code>: Time (UTC) to set.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="cmd-gs-command-exit">exit</p>
+</td>
+<td>Exit program. Only on Linux systems.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="log">
+<h2>3.11.6.2. log<a class="headerlink" href="#log" title="Permalink to this headline">¶</a></h2>
+<p>The <cite>log</cite> command group provides access to the log system, e.g. change log settings.</p>
+<span id="table-gs-log-commands"></span><table border="1" class="longtable docutils" id="id2">
+<caption><span class="caption-number">Table 3.6 </span><span class="caption-text">Command Table ‘log’</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Command</th>
+<th class="head">&#160;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first last" id="cmd-gs-log-log-group-list">log group list</p>
+</td>
+<td><p class="first">List groups.</p>
+<p>Arguments:</p>
+<p class="last"><code class="docutils literal"><span class="pre">[group]</span></code>: Name of group.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="cmd-gs-log-log-group-mask">log group mask</p>
+</td>
+<td><p class="first">Set mask: e|w|n|i|d|t|stand|all|off.</p>
+<p>Arguments:</p>
+<p><code class="docutils literal"><span class="pre">&lt;group[,group]&gt;</span></code>: Name of groups.</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;[+-]level[,level]&gt;</span></code>: Level mask.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last" id="cmd-gs-log-log-group-insert">log group insert</p>
+</td>
+<td><p class="first">Log message to group.</p>
+<p>Arguments:</p>
+<p><code class="docutils literal"><span class="pre">&lt;group&gt;</span></code>: Name of group.</p>
+<p><code class="docutils literal"><span class="pre">&lt;level&gt;</span></code>: Level to use.</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;message&gt;</span></code>: Log message, use quotes if message contains spaces.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="cmd-gs-log-log-group-color">log group color</p>
+</td>
+<td><p class="first">Enable/disable color logging (stdout).</p>
+<p>Arguments:</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;on&gt;</span></code>: true for color logging, false for none color.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last" id="cmd-gs-log-log-appender-list">log appender list</p>
+</td>
+<td><p class="first">List appenders.</p>
+<p>Arguments:</p>
+<p class="last"><code class="docutils literal"><span class="pre">[appender]</span></code>: Name of appender.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="cmd-gs-log-log-appender-mask">log appender mask</p>
+</td>
+<td><p class="first">Set mask: e|w|n|i|d|t|stand|all|off.</p>
+<p>Arguments:</p>
+<p><code class="docutils literal"><span class="pre">&lt;appender[,appender]&gt;</span></code>: Name of appenders.</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;[+-]level[,level]&gt;</span></code>: Level mask.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last" id="cmd-gs-log-log-appender-hist">log appender hist</p>
+</td>
+<td><p class="first">Show history.</p>
+<p>Arguments:</p>
+<p><code class="docutils literal"><span class="pre">&lt;appender&gt;</span></code>: Name of appender.</p>
+<p><code class="docutils literal"><span class="pre">[count]</span></code>: Max number of logs.</p>
+<p class="last"><code class="docutils literal"><span class="pre">[pattern]</span></code>: Pattern to match.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="cmd-gs-log-log-appender-clear">log appender clear</p>
+</td>
+<td><p class="first">Clear history.</p>
+<p>Arguments:</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;appender&gt;</span></code>: Name of appender.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last" id="cmd-gs-log-debug">debug</p>
+</td>
+<td><p class="first">Set log group mask: e|w|n|i|d|t|stand|all|off.</p>
+<p>Arguments:</p>
+<p><code class="docutils literal"><span class="pre">&lt;group[,group]&gt;</span></code>: Name of groups.</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;[+-]level[,level]&gt;</span></code>: Level mask.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="vmem">
+<h2>3.11.6.3. vmem<a class="headerlink" href="#vmem" title="Permalink to this headline">¶</a></h2>
+<p>The <cite>vmem</cite> command group provides access to the Virtuel Memory system. Not all prodocts uses <cite>vmem</cite>.</p>
+<span id="table-gs-vmem-commands"></span><table border="1" class="longtable docutils" id="id3">
+<caption><span class="caption-number">Table 3.7 </span><span class="caption-text">Command Table ‘vmem’</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Command</th>
+<th class="head">&#160;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><p class="first last" id="cmd-gs-vmem-vmem-read">vmem read</p>
+</td>
+<td><p class="first">Read from virtual memory.</p>
+<p>Arguments:</p>
+<p><code class="docutils literal"><span class="pre">&lt;addr&gt;</span></code>: Address.</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;length&gt;</span></code>: Bytes to read.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="cmd-gs-vmem-vmem-write">vmem write</p>
+</td>
+<td><p class="first">Write to virtual memory.</p>
+<p>Arguments:</p>
+<p><code class="docutils literal"><span class="pre">&lt;addr&gt;</span></code>: Address.</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;data&gt;</span></code>: Data to write, e.g. 1c01 to write 2 bytes 0x1c 0x01.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last" id="cmd-gs-vmem-vmem-lock">vmem lock</p>
+</td>
+<td><p class="first">Lock the virtual memory.</p>
+<p>Arguments:</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;entry&gt;</span></code>: Name vmem slot.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="cmd-gs-vmem-vmem-unlock">vmem unlock</p>
+</td>
+<td><p class="first">Unlock the virtual memory.</p>
+<p>Arguments:</p>
+<p class="last"><code class="docutils literal"><span class="pre">&lt;entry&gt;</span></code>: Name vmem slot.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first last" id="cmd-gs-vmem-vmem-list">vmem list</p>
+</td>
+<td>Show virtual memory mappings.</td>
+</tr>
+<tr class="row-odd"><td><p class="first last" id="cmd-gs-vmem-vmem-info">vmem info</p>
+</td>
+<td>Show virtual memory mappings + info.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../../doc/tools.html" class="btn btn-neutral float-right" title="4. Tools" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="command.html" class="btn btn-neutral" title="3.11.5. Command (GOSH)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020 GomSpace A/S..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.7.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
