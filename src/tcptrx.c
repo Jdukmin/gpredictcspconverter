@@ -32,7 +32,7 @@ void handle_set_rx_freq(int socket, const char* args) {
     double freq;
     if (sscanf(args, "%lf", &freq) == 1) {
         rig.rx_freq = freq;
-        printf("Set RX frequency to %u Hz\n", (uint32_t)rig.rx_freq);
+        // printf("Set RX frequency to %u Hz\n", (uint32_t)rig.rx_freq);
         if(task_doppler_rx((uint32_t)freq) == 0)
         {
             send(socket, "RPRT 0\n", 7, 0);  // 정상 응답

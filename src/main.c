@@ -15,7 +15,7 @@
 pthread_t p_thread[5];
 
 int main() {
-    int ec = init_task(8);
+    int ec = init_task(8, 4800);
     if(ec != CSP_ERR_NONE)
     {
         printf("Error whiel initializing.\n");
@@ -26,7 +26,9 @@ int main() {
     bool runstate = true;
     pthread_create(&p_thread[0], NULL, start_tcp_server, &runstate);
     pthread_create(&p_thread[1], NULL, task_beacon, &runstate);
+    pthread_create(&p_thread[2], NULL, task_rssi, &runstate);
     pthread_join(p_thread[0], NULL);
     pthread_join(p_thread[1], NULL);
+    pthread_join(p_thread[2], NULL);
     return 0;
 }

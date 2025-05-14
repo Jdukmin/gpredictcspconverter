@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <inttypes.h>
+#include <unistd.h>
 #include <csp/csp.h>
 #include <csp/drivers/usart.h>
 #include <gs/param/rparam.h>
@@ -7,7 +10,7 @@
 csp_iface_t* ifc = NULL;
 csp_conf_t conf;
 
-int init_task(uint8_t address) {
+int init_task(uint8_t address, uint32_t rxbaudrate) {
     int ec = CSP_ERR_NONE;
     csp_conf_get_defaults(&conf);
     conf.address = address;
@@ -29,6 +32,9 @@ int init_task(uint8_t address) {
         printf("Cannot Add KISS Interface.\n");
     }
     csp_rtable_set(20, 5, ifc, CSP_NO_VIA_ADDRESS);
+    usleep(1*1000*1000);
+    gs_rparam_set_uint32(20, 1, 0x0004, GS_RPARAM_MAGIC_CHECKSUM, 100, rxbaudrate);
+    printf("RX Baudrate : %u\n", rxbaudrate);
     return ec;
 }
 
@@ -38,6 +44,23 @@ int task_doppler_rx(uint32_t rxfreq) {
 
 int task_doppler_tx(uint32_t rxfreq) {
     return gs_rparam_set_uint32(20, 5, 0x0000, GS_RPARAM_MAGIC_CHECKSUM, 100, rxfreq);
+}
+
+void* task_rssi(void* runstate) {
+    int16_t res = 0;
+    int ec = 0;
+    while (1) {
+        
+        usleep(5*1000*1000);    
+        int ec = gs_rparam_get_int16(20, 4, 0x0004, GS_RPARAM_MAGIC_CHECKSUM, 100, &res);
+        if(ec != GS_OK)
+        {
+            printf("Cannot read RSSI value.\n");
+            continue;
+        }
+        printf("RSSI : %hddBm\n", res);
+        
+    }
 }
 
 /* Server task - handles requests from clients */
